@@ -3,7 +3,9 @@
 module.exports = grammar({
 	name: "promela",
 
-	conflicts: $ => [[$.decl_lst]],
+	extras: $ => [/\s|\\\r?\n/, $.comment],
+
+	conflicts: $ => [[$.decl_lst], [$._sequence]],
 
 	rules: {
 		source_file: $ => repeat1($._module),
@@ -34,7 +36,7 @@ module.exports = grammar({
 				"}",
 			),
 
-		init: $ => seq("init", "{", $._sequence, "}"),
+		init: $ => seq("init", "{", $._sequence, optional(";"), "}"),
 
 		never: $ => seq("never", "{", $._sequence, "}"),
 
@@ -125,12 +127,7 @@ module.exports = grammar({
 				seq("run", $.name, "(", optional($.arg_lst), ")", optional($.priority)),
 			),
 
-		_const_expr: $ => choice(
-				$.binary_expr,
-				$.unary_expr,
-				$.number,
-				$.name,
-		),
+		_const_expr: $ => choice($.binary_expr, $.unary_expr, $.number, $.name),
 
 		_expr: $ =>
 			prec(
@@ -195,5 +192,13 @@ module.exports = grammar({
 		name: _$ => /[a-zA-Z_][a-zA-Z_\d]*/,
 
 		number: _$ => /\d+/,
+
+		comment: _ =>
+			token(
+				choice(
+					seq("//", /(\\+(.|\r?\n)|[^\\\n])*/),
+					seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"),
+				),
+			),
 	},
 });

@@ -1,0 +1,32 @@
+======
+Atomic
+======
+
+init {
+	atomic {
+		tmp = b;
+		b = a;
+		a = tmp
+	}
+}
+
+---
+
+(source_file
+  (init
+    (assign
+      (varref
+        (name))
+      (varref
+        (name)))
+    (assign
+      (varref
+        (name))
+      (varref
+        (name)))
+    (assign
+      (varref
+        (name))
+      (varref
+        (name)))))
+

@@ -1155,6 +1155,10 @@
     "named": false
   },
   {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "empty",
     "named": false
   },
