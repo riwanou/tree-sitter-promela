@@ -9,6 +9,7 @@
   "author": "Riwan Coeffic",
   "license": "MIT",
   "devDependencies": {
+    "@biomejs/biome": "1.6.1",
     "tree-sitter-cli": "^0.22.1"
   },
   "dependencies": {

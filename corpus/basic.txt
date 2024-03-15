@@ -16,8 +16,7 @@ typedef array {
         (typename)
         (ivar
           (name)
-          (const
-            (number)))))))
+          (number))))))
 
 =====
 Mtype
@@ -50,14 +49,12 @@ int b = 2
       (typename)
       (ivar
         (name)
-        (const
-          (number))))
+        (number)))
     (one_decl
       (typename)
       (ivar
         (name)
-        (const
-          (number))))))
+        (number)))))
 
 ========
 Ch_init
@@ -78,8 +75,7 @@ init {
 	      (ivar
 	        (name)
 	        (ch_init
-	          (const
-	            (number))
+              (number)
 	          (typename)
 	          (typename)
 	          (typename)
@@ -88,11 +84,9 @@ init {
 	      (typename)
 	      (ivar
 	        (name)
-	        (const
-	          (number))
+            (number)
 	        (ch_init
-	          (const
-	            (number))
+              (number)
 	          (typename)))))))
 
 ====
@@ -133,13 +127,10 @@ init {
         (typename)
         (ivar
           (name))))
-    (stmnt
-      (stmnt
-        (assign
-          (varref
-            (name))
-          (const
-            (number)))))))
+    (assign
+      (varref
+        (name))
+        (number))))
 
 ===========
 Binary_expr
@@ -160,15 +151,11 @@ init {
           (name)
           (binary_expr
             (binary_expr
-              (const
-                (number))
-              (const
-                (number)))
+              (number)
+              (number))
             (binary_expr
-              (const
-                (number))
-              (const
-                (number)))))))))
+              (number)
+              (number))))))))
 
 ==========
 Unary_expr
@@ -189,11 +176,9 @@ init {
           (name)
           (binary_expr
             (unary_expr
-              (const
-                (number)))
+              (number))
             (unary_expr
-              (const
-                (number)))))))))
+              (number))))))))
 
 ======
 String

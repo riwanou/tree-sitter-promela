@@ -1,0 +1,114 @@
+======
+Active
+======
+
+active proctype A(int a) { byte tmp }
+active [4] proctype B() { run A(_pid) }
+---
+
+(source_file
+  (proctype
+    (active)
+    (name)
+    (decl_lst
+      (one_decl
+        (typename)
+        (ivar
+          (name))))
+    (decl_lst
+      (one_decl
+        (typename)
+        (ivar
+          (name)))))
+  (proctype
+    (active
+      (number))
+    (name)
+    (name)
+    (arg_lst
+      (varref
+        (name)))))
+
+======
+Arrays
+======
+
+byte state[N]
+
+---
+
+(source_file
+  (decl_lst
+    (one_decl
+      (typename)
+      (ivar
+        (name)
+        (name)))))
+
+====
+Chan
+====
+
+chan a = [16] of { short }
+chan c[3] = [0] of { mtype }
+chan qname = [8] of { mtype, int, chan, byte }
+
+---
+
+(source_file
+  (decl_lst
+    (one_decl
+      (typename)
+      (ivar
+        (name)
+        (ch_init
+          (number)
+          (typename)))))
+  (decl_lst
+    (one_decl
+      (typename)
+      (ivar
+        (name)
+        (number)
+        (ch_init
+          (number)
+          (typename)))))
+  (decl_lst
+    (one_decl
+      (typename)
+      (ivar
+        (name)
+        (ch_init
+          (number)
+          (typename)
+          (typename)
+          (typename)
+          (typename))))))
+
+========
+Proctype
+========
+
+proctype A(mtype x) { mtype state; state = x }
+
+---
+
+(source_file
+  (proctype
+    (name)
+    (decl_lst
+      (one_decl
+        (typename)
+        (ivar
+          (name))))
+    (decl_lst
+      (one_decl
+        (typename)
+        (ivar
+          (name))))
+    (assign
+      (varref
+        (name))
+      (varref
+        (name)))))
+

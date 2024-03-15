@@ -42,8 +42,85 @@
       ]
     },
     "proctype": {
-      "type": "STRING",
-      "value": "bloup"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "active"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "proctype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "decl_lst"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "priority"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "enabler"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_sequence"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
     },
     "init": {
       "type": "SEQ",
@@ -291,7 +368,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "const"
+          "name": "_const"
         },
         {
           "type": "CHOICE",
@@ -368,7 +445,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "const"
+                  "name": "_const"
                 },
                 {
                   "type": "STRING",
@@ -392,7 +469,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "const"
+          "name": "_const"
         }
       ]
     },
@@ -487,7 +564,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "const"
+                  "name": "_const_expr"
                 },
                 {
                   "type": "STRING",
@@ -550,7 +627,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "const"
+          "name": "_const"
         },
         {
           "type": "STRING",
@@ -650,6 +727,31 @@
         }
       ]
     },
+    "arg_lst": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_any_expr"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_any_expr"
+              }
+            ]
+          }
+        }
+      ]
+    },
     "assign": {
       "type": "CHOICE",
       "members": [
@@ -725,6 +827,10 @@
         {
           "type": "SYMBOL",
           "name": "assign"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expr"
         }
       ]
     },
@@ -790,8 +896,33 @@
           ]
         },
         {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "len"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "varref"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
-          "name": "const"
+          "name": "varref"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_const"
         },
         {
           "type": "STRING",
@@ -842,22 +973,17 @@
               "value": ")"
             }
           ]
-        }
-      ]
-    },
-    "_expr": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_any_expr"
         },
         {
           "type": "SEQ",
           "members": [
             {
+              "type": "SYMBOL",
+              "name": "name"
+            },
+            {
               "type": "STRING",
-              "value": "("
+              "value": "["
             },
             {
               "type": "SYMBOL",
@@ -865,36 +991,140 @@
             },
             {
               "type": "STRING",
-              "value": ")"
+              "value": "]"
+            },
+            {
+              "type": "STRING",
+              "value": "@"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "name"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "andor_expr"
         },
         {
           "type": "SEQ",
           "members": [
             {
+              "type": "STRING",
+              "value": "run"
+            },
+            {
               "type": "SYMBOL",
-              "name": "chanpoll"
+              "name": "name"
             },
             {
               "type": "STRING",
               "value": "("
             },
             {
-              "type": "SYMBOL",
-              "name": "varref"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "arg_lst"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             },
             {
               "type": "STRING",
               "value": ")"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "priority"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             }
           ]
         }
       ]
+    },
+    "_const_expr": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "binary_expr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unary_expr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        }
+      ]
+    },
+    "_expr": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_any_expr"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "("
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_any_expr"
+              },
+              {
+                "type": "STRING",
+                "value": ")"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "andor_expr"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "chanpoll"
+              },
+              {
+                "type": "STRING",
+                "value": "("
+              },
+              {
+                "type": "SYMBOL",
+                "name": "varref"
+              },
+              {
+                "type": "STRING",
+                "value": ")"
+              }
+            ]
+          }
+        ]
+      }
     },
     "chanpoll": {
       "type": "CHOICE",
@@ -1527,7 +1757,7 @@
         ]
       }
     },
-    "const": {
+    "_const": {
       "type": "CHOICE",
       "members": [
         {

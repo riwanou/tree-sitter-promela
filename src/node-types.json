@@ -1,5 +1,20 @@
 [
   {
+    "type": "active",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "andor_expr",
     "named": true,
     "fields": {},
@@ -12,6 +27,10 @@
           "named": true
         },
         {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
           "type": "binary_expr",
           "named": true
         },
@@ -20,7 +39,54 @@
           "named": true
         },
         {
-          "type": "const",
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "arg_lst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
           "named": true
         },
         {
@@ -43,11 +109,23 @@
       "required": true,
       "types": [
         {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
           "type": "binary_expr",
           "named": true
         },
         {
-          "type": "const",
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
           "named": true
         },
         {
@@ -86,11 +164,23 @@
             "named": false
           },
           {
-            "type": "binary_expr",
+            "type": "@",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
             "named": true
           },
           {
-            "type": "const",
+            "type": "binary_expr",
             "named": true
           },
           {
@@ -98,11 +188,39 @@
             "named": false
           },
           {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "len",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
             "type": "np_",
             "named": false
           },
           {
+            "type": "number",
+            "named": true
+          },
+          {
             "type": "pc_value",
+            "named": false
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          },
+          {
+            "type": "skip",
             "named": false
           },
           {
@@ -110,7 +228,15 @@
             "named": false
           },
           {
+            "type": "true",
+            "named": false
+          },
+          {
             "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "varref",
             "named": true
           }
         ]
@@ -206,11 +332,23 @@
             "named": false
           },
           {
-            "type": "binary_expr",
+            "type": "@",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
             "named": true
           },
           {
-            "type": "const",
+            "type": "binary_expr",
             "named": true
           },
           {
@@ -218,11 +356,39 @@
             "named": false
           },
           {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "len",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
             "type": "np_",
             "named": false
           },
           {
+            "type": "number",
+            "named": true
+          },
+          {
             "type": "pc_value",
+            "named": false
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          },
+          {
+            "type": "skip",
             "named": false
           },
           {
@@ -230,7 +396,15 @@
             "named": false
           },
           {
+            "type": "true",
+            "named": false
+          },
+          {
             "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "varref",
             "named": true
           }
         ]
@@ -246,7 +420,7 @@
       "required": true,
       "types": [
         {
-          "type": "const",
+          "type": "number",
           "named": true
         },
         {
@@ -260,21 +434,6 @@
     "type": "chanpoll",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "const",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "number",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "decl_lst",
@@ -292,6 +451,53 @@
     }
   },
   {
+    "type": "enabler",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "andor_expr",
+          "named": true
+        },
+        {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "chanpoll",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "init",
     "named": true,
     "fields": {},
@@ -300,11 +506,47 @@
       "required": false,
       "types": [
         {
+          "type": "andor_expr",
+          "named": true
+        },
+        {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
           "type": "assign",
           "named": true
         },
         {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "chanpoll",
+          "named": true
+        },
+        {
           "type": "decl_lst",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -319,6 +561,10 @@
       "required": true,
       "types": [
         {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
           "type": "binary_expr",
           "named": true
         },
@@ -327,15 +573,23 @@
           "named": true
         },
         {
-          "type": "const",
-          "named": true
-        },
-        {
           "type": "name",
           "named": true
         },
         {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
           "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -365,11 +619,47 @@
       "required": false,
       "types": [
         {
+          "type": "andor_expr",
+          "named": true
+        },
+        {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
           "type": "assign",
           "named": true
         },
         {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "chanpoll",
+          "named": true
+        },
+        {
           "type": "decl_lst",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -397,6 +687,84 @@
         },
         {
           "type": "visible",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "priority",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "proctype",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "active",
+          "named": true
+        },
+        {
+          "type": "andor_expr",
+          "named": true
+        },
+        {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
+          "type": "assign",
+          "named": true
+        },
+        {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "chanpoll",
+          "named": true
+        },
+        {
+          "type": "decl_lst",
+          "named": true
+        },
+        {
+          "type": "enabler",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -450,11 +818,47 @@
       "required": false,
       "types": [
         {
+          "type": "andor_expr",
+          "named": true
+        },
+        {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
           "type": "assign",
           "named": true
         },
         {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "chanpoll",
+          "named": true
+        },
+        {
           "type": "decl_lst",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -474,15 +878,31 @@
       "required": false,
       "types": [
         {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
           "type": "binary_expr",
           "named": true
         },
         {
-          "type": "const",
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
           "named": true
         },
         {
           "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -497,11 +917,11 @@
       "required": true,
       "types": [
         {
-          "type": "binary_expr",
+          "type": "arg_lst",
           "named": true
         },
         {
-          "type": "const",
+          "type": "binary_expr",
           "named": true
         },
         {
@@ -509,7 +929,19 @@
           "named": true
         },
         {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
           "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -543,15 +975,23 @@
       "required": true,
       "types": [
         {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
           "type": "binary_expr",
           "named": true
         },
         {
-          "type": "const",
+          "type": "name",
           "named": true
         },
         {
-          "type": "name",
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
           "named": true
         },
         {
@@ -675,6 +1115,10 @@
     "named": false
   },
   {
+    "type": "@",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -739,6 +1183,10 @@
     "named": false
   },
   {
+    "type": "len",
+    "named": false
+  },
+  {
     "type": "mtype",
     "named": false
   },
@@ -780,10 +1228,14 @@
   },
   {
     "type": "proctype",
-    "named": true
+    "named": false
   },
   {
     "type": "provided",
+    "named": false
+  },
+  {
+    "type": "run",
     "named": false
   },
   {
