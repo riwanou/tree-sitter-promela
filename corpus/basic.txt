@@ -18,22 +18,6 @@ typedef array {
           (name)
           (number))))))
 
-=====
-Mtype
-=====
-
-mtype = { ack, nak, err, next, accept }
-
----
-
-(source_file
-	(mtype
-	  (name)
-	  (name)
-	  (name)
-	  (name)
-	  (name)))
-
 ========
 Decl_lst
 ========

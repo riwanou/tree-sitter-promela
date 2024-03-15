@@ -34,6 +34,9 @@ Arrays
 ======
 
 byte state[N]
+init {
+  state[0] = state[3] + 5 * state[3*2/n]
+}
 
 ---
 
@@ -43,7 +46,26 @@ byte state[N]
       (typename)
       (ivar
         (name)
-        (name)))))
+        (name))))
+  (init
+    (assign
+      (varref
+        (name)
+        (number))
+      (binary_expr
+        (varref
+          (name)
+          (number))
+        (binary_expr
+          (number)
+          (varref
+            (name)
+            (binary_expr
+              (binary_expr
+                (number)
+                (number))
+              (varref
+                (name)))))))))
 
 ====
 Chan
@@ -86,6 +108,57 @@ chan qname = [8] of { mtype, int, chan, byte }
           (typename))))))
 
 ========
+Datatype
+========
+
+byte a, b = 2; short c[3] = 3
+
+---
+
+(source_file
+  (decl_lst
+    (one_decl
+      (typename)
+      (ivar
+        (name))
+      (ivar
+        (name)
+        (number)))
+    (one_decl
+      (typename)
+      (ivar
+        (name)
+        (number)
+        (number)))))
+
+====
+Init
+====
+
+init { skip }
+
+---
+
+(source_file
+  (init))
+
+=====
+Mtype
+=====
+
+mtype = { ack, nak, err, next, accept }
+
+---
+
+(source_file
+  (mtype
+    (name)
+    (name)
+    (name)
+    (name)
+    (name)))
+
+========
 Proctype
 ========
 
@@ -111,4 +184,3 @@ proctype A(mtype x) { mtype state; state = x }
         (name))
       (varref
         (name)))))
-
