@@ -631,15 +631,39 @@
             "named": false
           },
           {
+            "type": "binary_expr",
+            "named": true
+          },
+          {
             "type": "binary_ltl",
             "named": true
           },
           {
-            "type": "opd_ltl",
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "skip",
+            "named": false
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_expr",
             "named": true
           },
           {
             "type": "unary_ltl",
+            "named": true
+          },
+          {
+            "type": "varref",
             "named": true
           }
         ]
@@ -681,6 +705,18 @@
             "named": false
           },
           {
+            "type": "equivalent",
+            "named": false
+          },
+          {
+            "type": "implies",
+            "named": false
+          },
+          {
+            "type": "until",
+            "named": false
+          },
+          {
             "type": "||",
             "named": false
           }
@@ -699,15 +735,39 @@
             "named": false
           },
           {
+            "type": "binary_expr",
+            "named": true
+          },
+          {
             "type": "binary_ltl",
             "named": true
           },
           {
-            "type": "opd_ltl",
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "skip",
+            "named": false
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_expr",
             "named": true
           },
           {
             "type": "unary_ltl",
+            "named": true
+          },
+          {
+            "type": "varref",
             "named": true
           }
         ]
@@ -1842,6 +1902,10 @@
       "required": true,
       "types": [
         {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
           "type": "binary_ltl",
           "named": true
         },
@@ -1850,11 +1914,19 @@
           "named": true
         },
         {
-          "type": "opd_ltl",
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
           "named": true
         },
         {
           "type": "unary_ltl",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -2510,33 +2582,6 @@
         },
         {
           "type": "visible",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "opd_ltl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "binary_expr",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "unary_expr",
-          "named": true
-        },
-        {
-          "type": "varref",
           "named": true
         }
       ]
@@ -4346,18 +4391,30 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
+        {
+          "type": "binary_expr",
+          "named": true
+        },
         {
           "type": "binary_ltl",
           "named": true
         },
         {
-          "type": "opd_ltl",
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
           "named": true
         },
         {
           "type": "unary_ltl",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -4736,6 +4793,10 @@
     "named": false
   },
   {
+    "type": "always",
+    "named": false
+  },
+  {
     "type": "assert",
     "named": false
   },
@@ -4780,7 +4841,15 @@
     "named": false
   },
   {
+    "type": "equivalent",
+    "named": false
+  },
+  {
     "type": "eval",
+    "named": false
+  },
+  {
+    "type": "eventually",
     "named": false
   },
   {
@@ -4801,6 +4870,10 @@
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "implies",
     "named": false
   },
   {
@@ -4830,6 +4903,10 @@
   {
     "type": "name",
     "named": true
+  },
+  {
+    "type": "negation",
+    "named": false
   },
   {
     "type": "nempty",
@@ -4917,6 +4994,10 @@
   },
   {
     "type": "unsigned",
+    "named": false
+  },
+  {
+    "type": "until",
     "named": false
   },
   {

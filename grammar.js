@@ -39,15 +39,23 @@ module.exports = grammar({
 		inline_ltl: $ => seq("ltl", $.name, "{", $._ltl, "}"),
 
 		_ltl: $ =>
-			choice($.opd_ltl, seq("(", $._ltl, ")"), $.unary_ltl, $.binary_ltl),
+			choice($._opd_ltl, seq("(", $._ltl, ")"), $.unary_ltl, $.binary_ltl),
 
-		opd_ltl: $ => prec(1, choice($._const_expr, "true", "false")),
+		_opd_ltl: $ => prec(1, choice($._const_expr, "true", "false")),
 
-		unary_ltl: $ => prec.left(4, seq(choice("[]", "<>", "!"), $._ltl)),
+		unary_ltl: $ =>
+			prec.left(
+				4,
+				seq(
+					choice("[]", "always", "<>", "eventually", "!", "negation"),
+					$._ltl,
+				),
+			),
 
 		binary_ltl: $ => {
 			const table = [
 				["U", 1],
+				["until", 1],
 				["W", 1],
 				["V", 1],
 				["&&", 2],
@@ -55,7 +63,9 @@ module.exports = grammar({
 				["/\\", 2],
 				["\\/", 2],
 				["->", 3],
+				["implies", 3],
 				["<->", 3],
+				["equivalent", 3],
 			];
 
 			return choice(

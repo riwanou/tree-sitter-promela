@@ -50,6 +50,8 @@ Ltl
 ===
 
 ltl p1 { []<> p }
+ltl p2 { always eventually p }
+ltl p3 { eventually (a > b) implies len(q) == 0 }
 ltl vivacite { ([]dem_SC -> (<>en_SC)) }
 
 ---
@@ -59,20 +61,36 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
     (name)
     (unary_ltl
       (unary_ltl
-        (opd_ltl
-          (varref
-            (name))))))
+        (varref
+          (name)))))
+  (inline_ltl
+    (name)
+    (unary_ltl
+      (unary_ltl
+        (varref
+          (name)))))
   (inline_ltl
     (name)
     (binary_ltl
       (unary_ltl
-        (opd_ltl
+        (binary_expr
+          (varref
+            (name))
           (varref
             (name))))
+      (binary_expr
+        (varref
+          (name))
+        (number))))
+  (inline_ltl
+    (name)
+    (binary_ltl
       (unary_ltl
-        (opd_ltl
-          (varref
-            (name)))))))
+        (varref
+          (name)))
+      (unary_ltl
+        (varref
+          (name))))))
 
 ======
 Macros
