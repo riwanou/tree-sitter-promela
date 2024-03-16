@@ -91,31 +91,6 @@ init {
         (ivar
           (name))))))
 
-======
-Atomic
-======
-
-init {
-	byte proc; 
-  atomic {
-		proc = 0
-  }
-}
-
----
-
-(source_file
-  (init
-    (decl_lst
-      (one_decl
-        (typename)
-        (ivar
-          (name))))
-    (assign
-      (varref
-        (name))
-        (number))))
-
 ===========
 Binary_expr
 ===========

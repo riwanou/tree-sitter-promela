@@ -59,7 +59,7 @@ module.exports = grammar({
 				"}",
 			),
 
-		init: $ => seq("init", "{", $._sequence, optional(";"), "}"),
+		init: $ => seq("init", "{", $._sequence, optional($._sep), "}"),
 
 		never: $ => seq("never", "{", $._sequence, "}"),
 
@@ -75,10 +75,11 @@ module.exports = grammar({
 				$.name,
 				repeat(seq(",", $.name)),
 				"}",
-				optional(";"),
+				optional($._sep),
 			),
 
-		decl_lst: $ => seq($.one_decl, repeat(seq(";", $.one_decl)), optional(";")),
+		decl_lst: $ =>
+			seq($.one_decl, repeat(seq($._sep, $.one_decl)), optional($._sep)),
 
 		one_decl: $ =>
 			choice(
@@ -100,7 +101,7 @@ module.exports = grammar({
 
 		visible: _$ => choice("hidden", "show"),
 
-		_sequence: $ => seq($._step, repeat(seq(";", $._step))),
+		_sequence: $ => seq($._step, repeat(seq($._sep, $._step))),
 
 		_step: $ => choice($._stmnt, $.decl_lst),
 
@@ -139,7 +140,13 @@ module.exports = grammar({
 			),
 
 		_stmnt: $ =>
-			choice(seq("atomic", "{", $._sequence, "}"), $.assign, $._expr),
+			choice(
+				seq("do", $.options, "od"),
+				seq("atomic", "{", $._sequence, "}"),
+				$.assign,
+				$._expr,
+				"break",
+			),
 
 		_any_expr: $ =>
 			choice(
@@ -172,6 +179,8 @@ module.exports = grammar({
 			),
 
 		chanpoll: _$ => choice("full", "empty", "nfull", "nempty"),
+
+		options: $ => repeat1(seq(":", ":", $._sequence)),
 
 		andor_expr: $ =>
 			choice(
@@ -223,6 +232,8 @@ module.exports = grammar({
 		name: _$ => /[a-zA-Z_][a-zA-Z_\d]*/,
 
 		number: _$ => /\d+/,
+
+		_sep: _ => choice(";", "->"),
 
 		comment: _ =>
 			token(

@@ -30,3 +30,34 @@ init {
       (varref
         (name)))))
 
+===
+Do
+===
+
+active proctype counter()
+{
+	do
+	:: count++
+	:: count--
+	:: (count == 0) ->
+		break
+	od
+}
+
+---
+
+(source_file
+  (proctype
+    (active)
+    (name)
+    (options
+      (assign
+        (varref
+          (name)))
+      (assign
+        (varref
+          (name)))
+      (binary_expr
+        (varref
+          (name))
+        (number)))))

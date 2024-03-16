@@ -577,6 +577,10 @@
           "named": true
         },
         {
+          "type": "options",
+          "named": true
+        },
+        {
           "type": "priority",
           "named": true
         },
@@ -629,6 +633,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "options",
           "named": true
         },
         {
@@ -745,6 +753,10 @@
           "named": true
         },
         {
+          "type": "options",
+          "named": true
+        },
+        {
           "type": "priority",
           "named": true
         },
@@ -781,6 +793,65 @@
         },
         {
           "type": "visible",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "andor_expr",
+          "named": true
+        },
+        {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
+          "type": "assign",
+          "named": true
+        },
+        {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "chanpoll",
+          "named": true
+        },
+        {
+          "type": "decl_lst",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
           "named": true
         }
       ]
@@ -847,6 +918,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "options",
           "named": true
         },
         {
@@ -949,6 +1024,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "options",
           "named": true
         },
         {
@@ -1253,6 +1332,10 @@
     "named": false
   },
   {
+    "type": "break",
+    "named": false
+  },
+  {
     "type": "byte",
     "named": false
   },
@@ -1263,6 +1346,10 @@
   {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "do",
+    "named": false
   },
   {
     "type": "empty",
@@ -1327,6 +1414,10 @@
   {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "od",
+    "named": false
   },
   {
     "type": "of",
