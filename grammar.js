@@ -5,14 +5,22 @@ module.exports = grammar({
 
 	extras: $ => [/\s|\\\r?\n/, $.comment],
 
-	conflicts: $ => [[$.decl_lst], [$._sequence]],
+	conflicts: $ => [
+		[$.decl_lst],
+		[$._sequence],
+		[$.varref, $._const_expr],
+		[$._const, $._const_expr],
+		[$._any_expr, $._const_expr],
+	],
 
 	rules: {
 		source_file: $ => repeat1($._module),
 
 		_module: $ =>
 			choice(
+				$.define,
 				$.proctype,
+				$.inline,
 				$.init,
 				$.never,
 				$.trace,
@@ -20,6 +28,9 @@ module.exports = grammar({
 				$.mtype,
 				$.decl_lst,
 			),
+
+		define: $ =>
+			seq("#define", $.name, optional("("), $._const_expr, optional(")")),
 
 		proctype: $ =>
 			seq(
@@ -36,6 +47,18 @@ module.exports = grammar({
 				"}",
 			),
 
+		inline: $ =>
+			seq(
+				"inline",
+				$.name,
+				"(",
+				optional($.decl_lst),
+				")",
+				"{",
+				$._sequence,
+				"}",
+			),
+
 		init: $ => seq("init", "{", $._sequence, optional(";"), "}"),
 
 		never: $ => seq("never", "{", $._sequence, "}"),
@@ -45,9 +68,17 @@ module.exports = grammar({
 		utype: $ => seq("typedef", $.name, "{", $.decl_lst, "}"),
 
 		mtype: $ =>
-			seq("mtype", optional("="), "{", $.name, repeat(seq(",", $.name)), "}"),
+			seq(
+				"mtype",
+				optional("="),
+				"{",
+				$.name,
+				repeat(seq(",", $.name)),
+				"}",
+				optional(";"),
+			),
 
-		decl_lst: $ => seq($.one_decl, repeat(seq(";", $.one_decl))),
+		decl_lst: $ => seq($.one_decl, repeat(seq(";", $.one_decl)), optional(";")),
 
 		one_decl: $ =>
 			choice(
@@ -83,7 +114,7 @@ module.exports = grammar({
 		ch_init: $ =>
 			seq(
 				"[",
-				$._const,
+				$._const_expr,
 				"]",
 				"of",
 				"{",

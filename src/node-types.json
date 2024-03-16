@@ -420,11 +420,23 @@
       "required": true,
       "types": [
         {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
           "type": "number",
           "named": true
         },
         {
           "type": "typename",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
           "named": true
         }
       ]
@@ -445,6 +457,33 @@
       "types": [
         {
           "type": "one_decl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "define",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
           "named": true
         }
       ]
@@ -504,6 +543,61 @@
     "children": {
       "multiple": true,
       "required": false,
+      "types": [
+        {
+          "type": "andor_expr",
+          "named": true
+        },
+        {
+          "type": "arg_lst",
+          "named": true
+        },
+        {
+          "type": "assign",
+          "named": true
+        },
+        {
+          "type": "binary_expr",
+          "named": true
+        },
+        {
+          "type": "chanpoll",
+          "named": true
+        },
+        {
+          "type": "decl_lst",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "varref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "inline",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "andor_expr",
@@ -783,7 +877,15 @@
           "named": true
         },
         {
+          "type": "define",
+          "named": true
+        },
+        {
           "type": "init",
+          "named": true
+        },
+        {
+          "type": "inline",
           "named": true
         },
         {
@@ -1019,6 +1121,10 @@
     "named": false
   },
   {
+    "type": "#define",
+    "named": false
+  },
+  {
     "type": "%",
     "named": false
   },
@@ -1180,6 +1286,10 @@
   },
   {
     "type": "init",
+    "named": false
+  },
+  {
+    "type": "inline",
     "named": false
   },
   {

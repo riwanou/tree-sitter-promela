@@ -72,7 +72,7 @@ Chan
 ====
 
 chan a = [16] of { short }
-chan c[3] = [0] of { mtype }
+chan c[3] = [N] of { mtype }
 chan qname = [8] of { mtype, int, chan, byte }
 
 ---
@@ -93,7 +93,7 @@ chan qname = [8] of { mtype, int, chan, byte }
         (name)
         (number)
         (ch_init
-          (number)
+          (name)
           (typename)))))
   (decl_lst
     (one_decl

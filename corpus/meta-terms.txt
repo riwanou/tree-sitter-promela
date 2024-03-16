@@ -24,3 +24,47 @@ Comments
       (varref
         (name))
       (comment))))
+
+======
+Define
+======
+
+#define N      3    /* Number of processes */ 
+#define L     10    /* Buffer size */
+#define NIL (N+1)   /* for an undefined value */
+
+---
+
+(source_file
+  (define
+    (name)
+    (number))
+  (comment)
+  (define
+    (name)
+    (number))
+  (comment)
+  (define
+    (name)
+    (binary_expr
+      (varref
+        (name))
+      (number)))
+  (comment))
+
+======
+Inline
+======
+
+inline init() {
+  requesting = true
+}
+
+---
+
+(source_file
+  (inline
+    (name)
+    (assign
+      (varref
+        (name)))))
