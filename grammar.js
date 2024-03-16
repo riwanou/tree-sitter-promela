@@ -8,6 +8,8 @@ module.exports = grammar({
 	conflicts: $ => [
 		[$.decl_lst],
 		[$._sequence],
+		[$.varref, $._any_expr],
+		[$.varref, $._stmnt],
 		[$.varref, $._const_expr],
 		[$._const, $._const_expr],
 		[$._any_expr, $._const_expr],
@@ -136,7 +138,36 @@ module.exports = grammar({
 				optional(seq(".", $.varref)),
 			),
 
+		send: $ =>
+			choice(
+				seq($.varref, "!", $.send_args),
+				seq($.varref, "!", "!", $.send_args),
+			),
+
+		receive: $ =>
+			choice(
+				seq($.varref, "?", $.recv_args),
+				seq($.varref, "?", "?", $.recv_args),
+				seq($.varref, "?", "<", $.recv_args, ">"),
+				seq($.varref, "?", "?", "<", $.recv_args, ">"),
+			),
+
+		send_args: $ => choice($.arg_lst, seq($._any_expr, "(", $.arg_lst, ")")),
+
 		arg_lst: $ => seq($._any_expr, repeat(seq(",", $._any_expr))),
+
+		recv_args: $ =>
+			choice(
+				seq($.recv_arg, repeat(seq(",", $.recv_arg))),
+				seq($.recv_arg, "(", $.recv_arg, ")"),
+			),
+
+		recv_arg: $ =>
+			choice(
+				$.varref,
+				seq("eval", "(", $.varref, ")"),
+				seq(optional("-"), $._const),
+			),
 
 		assign: $ =>
 			choice(
@@ -150,10 +181,13 @@ module.exports = grammar({
 				seq("if", $.options, "fi"),
 				seq("do", $.options, "od"),
 				seq("atomic", "{", $._sequence, "}"),
+				$.send,
+				$.receive,
 				$.assign,
 				field("assert", seq("assert", $._expr)),
 				$._expr,
 				"break",
+				field("label", seq($.name, ":", $._stmnt)),
 			),
 
 		_any_expr: $ =>

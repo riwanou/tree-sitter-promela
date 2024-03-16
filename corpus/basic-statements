@@ -25,3 +25,89 @@ active proctype monitor()
         (name))
       (varref
         (name)))))
+
+=======
+Receive
+=======
+
+init {
+  set?x;
+  set?<x>;
+  set??5;
+  set??<y>
+}
+
+---
+
+(source_file
+  (init
+    (receive
+      (varref
+        (name))
+      (recv_args
+        (recv_arg
+          (varref
+            (name)))))
+    (receive
+      (varref
+        (name))
+      (recv_args
+        (recv_arg
+          (varref
+            (name)))))
+    (receive
+      (varref
+        (name))
+      (recv_args
+        (recv_arg
+          (number))))
+    (receive
+      (varref
+        (name))
+      (recv_args
+        (recv_arg
+          (varref
+            (name)))))))
+
+====
+Send
+====
+
+active proctype tester()
+{
+	x!!3; x!!2; x!!1; x!4
+}
+
+---
+
+(source_file
+  (proctype
+    (active)
+    (name)
+    (send
+      (varref
+        (name))
+      (send_args
+        (arg_lst
+          (unary_expr
+            (number)))))
+    (send
+      (varref
+        (name))
+      (send_args
+        (arg_lst
+          (unary_expr
+            (number)))))
+    (send
+      (varref
+        (name))
+      (send_args
+        (arg_lst
+          (unary_expr
+            (number)))))
+    (send
+      (varref
+        (name))
+      (send_args
+        (arg_lst
+          (number))))))

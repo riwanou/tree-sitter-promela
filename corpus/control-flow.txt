@@ -30,6 +30,31 @@ init {
       (varref
         (name)))))
 
+=====
+Break
+=====
+
+init {
+  L1: do
+    :: t1 -> t2
+    :: t3 -> break
+    :: break
+  od
+}
+
+---
+
+(source_file
+  (init
+    (name)
+    (options
+      (varref
+        (name))
+      (varref
+        (name))
+      (varref
+        (name)))))
+
 ===
 Do
 ===
@@ -88,3 +113,44 @@ init {
           (name))
         (varref
           (name))))))
+
+======
+Labels
+======
+
+active proctype dijkstra()
+{
+S0:
+S1:	do
+	:: q!p ->
+S2:		q?v
+	:: true
+	od
+/* S3 */
+}
+
+---
+
+(source_file
+  (proctype
+    (active)
+    (name)
+    (name)
+    (name)
+    (options
+      (send
+        (varref
+          (name))
+        (send_args
+          (arg_lst
+            (varref
+              (name)))))
+      (name)
+      (receive
+        (varref
+          (name))
+        (recv_args
+          (recv_arg
+            (varref
+              (name))))))
+    (comment)))
