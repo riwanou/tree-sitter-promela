@@ -26,33 +26,6 @@ Comments
       (comment))))
 
 ======
-Define
-======
-
-#define N      3    /* Number of processes */ 
-#define L     10    /* Buffer size */
-#define NIL (N+1)   /* for an undefined value */
-
----
-
-(source_file
-  (define
-    (name)
-    (number))
-  (comment)
-  (define
-    (name)
-    (number))
-  (comment)
-  (define
-    (name)
-    (binary_expr
-      (varref
-        (name))
-      (number)))
-  (comment))
-
-======
 Inline
 ======
 
@@ -71,3 +44,62 @@ init { recv() }
         (name))))
   (init
     (name)))
+
+===
+Ltl
+===
+
+ltl p1 { []<> p }
+ltl vivacite { ([]dem_SC -> (<>en_SC)) }
+
+---
+
+(source_file
+  (inline_ltl
+    (name)
+    (unary_ltl
+      (unary_ltl
+        (opd_ltl
+          (varref
+            (name))))))
+  (inline_ltl
+    (name)
+    (binary_ltl
+      (unary_ltl
+        (opd_ltl
+          (varref
+            (name))))
+      (unary_ltl
+        (opd_ltl
+          (varref
+            (name)))))))
+
+======
+Macros
+======
+
+#include "promela_model"
+#define N      3    /* Number of processes */ 
+#define L     10    /* Buffer size */
+#define NIL (N+1)   /* for an undefined value */
+
+---
+
+(source_file
+  (macros
+    (string))
+  (macros
+    (name)
+    (number))
+  (comment)
+  (macros
+    (name)
+    (number))
+  (comment)
+  (macros
+    (name)
+    (binary_expr
+      (varref
+        (name))
+      (number)))
+  (comment))

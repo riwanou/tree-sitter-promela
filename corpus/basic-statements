@@ -26,6 +26,102 @@ active proctype monitor()
       (varref
         (name)))))
 
+======
+Assign
+======
+
+init {
+  a = 12;
+  r.b[a] = a * 4 + 7;
+  a = b;
+  b++
+}
+
+---
+
+(source_file
+  (init
+    (assign
+      (varref
+        (name))
+      (number))
+    (assign
+      (varref
+        (name)
+        (varref
+          (name)
+          (varref
+            (name))))
+      (binary_expr
+        (binary_expr
+          (varref
+            (name))
+          (number))
+        (number)))
+    (assign
+      (varref
+        (name))
+      (varref
+        (name)))
+    (assign
+      (varref
+        (name)))))
+
+=========
+Condition
+=========
+
+init {
+  if
+  :: (1) -> skip
+  :: (0) -> skip
+  :: (skip) -> skip
+  :: (true) -> skip
+  :: (false) -> skip
+  :: (a == b) -> skip
+  fi
+}
+
+---
+
+(source_file
+  (init
+    (options
+      (number)
+      (number)
+      (binary_expr
+        (varref
+          (name))
+        (varref
+          (name))))))
+
+=============
+Printf/Printm
+=============
+
+init {
+  printf("numbers: %d\t%d\n", (-10)%(-9), (-10)<<(-2));
+  printm(x)
+}
+
+---
+
+(source_file
+  (init
+    (string)
+    (arg_lst
+      (binary_expr
+        (unary_expr
+          (number))
+        (unary_expr
+          (number)))
+      (binary_expr
+        (unary_expr
+          (number))
+        (unary_expr
+          (number))))
+    (name)))
+
 =======
 Receive
 =======

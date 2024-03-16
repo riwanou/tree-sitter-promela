@@ -46,7 +46,8 @@ init {
       (typename)
       (ivar
         (name)
-        (name))))
+        (varref
+          (name)))))
   (init
     (assign
       (varref
@@ -93,7 +94,8 @@ chan qname = [8] of { mtype, int, chan, byte }
         (name)
         (number)
         (ch_init
-          (name)
+          (varref
+            (name))
           (typename)))))
   (decl_lst
     (one_decl

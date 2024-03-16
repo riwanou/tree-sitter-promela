@@ -9,10 +9,8 @@ module.exports = grammar({
 		[$.decl_lst],
 		[$._sequence],
 		[$.varref, $._any_expr],
+		[$.macros, $._any_expr],
 		[$.varref, $._stmnt],
-		[$.varref, $._const_expr],
-		[$._const, $._const_expr],
-		[$._any_expr, $._const_expr],
 	],
 
 	rules: {
@@ -20,7 +18,8 @@ module.exports = grammar({
 
 		_module: $ =>
 			choice(
-				$.define,
+				$.macros,
+				$.inline_ltl,
 				$.proctype,
 				$.inline,
 				$.init,
@@ -31,8 +30,48 @@ module.exports = grammar({
 				$.decl_lst,
 			),
 
-		define: $ =>
-			seq("#define", $.name, optional("("), $._const_expr, optional(")")),
+		macros: $ =>
+			choice(
+				seq("#define", $.name, optional("("), $._const_expr, optional(")")),
+				seq("#include", $.string),
+			),
+
+		inline_ltl: $ => seq("ltl", $.name, "{", $._ltl, "}"),
+
+		_ltl: $ =>
+			choice($.opd_ltl, seq("(", $._ltl, ")"), $.unary_ltl, $.binary_ltl),
+
+		opd_ltl: $ => prec(1, choice($._const_expr, "true", "false")),
+
+		unary_ltl: $ => prec.left(4, seq(choice("[]", "<>", "!"), $._ltl)),
+
+		binary_ltl: $ => {
+			const table = [
+				["U", 1],
+				["W", 1],
+				["V", 1],
+				["&&", 2],
+				["||", 2],
+				["/\\", 2],
+				["\\/", 2],
+				["->", 3],
+				["<->", 3],
+			];
+
+			return choice(
+				...table.map(([operator, precedence]) => {
+					return prec.left(
+						precedence,
+						seq(
+							field("left", $._ltl),
+							// @ts-ignore
+							field("operator", operator),
+							field("right", $._ltl),
+						),
+					);
+				}),
+			);
+		},
 
 		proctype: $ =>
 			seq(
@@ -184,6 +223,11 @@ module.exports = grammar({
 				$.send,
 				$.receive,
 				$.assign,
+				field(
+					"printf",
+					seq("printf", "(", $.string, optional(seq(",", $.arg_lst)), ")"),
+				),
+				field("printm", seq("printm", "(", $.name, ")")),
 				field("assert", seq("assert", $._expr)),
 				$._expr,
 				"break",
@@ -193,12 +237,9 @@ module.exports = grammar({
 		_any_expr: $ =>
 			choice(
 				seq("(", $._any_expr, ")"),
-				$.binary_expr,
-				$.unary_expr,
+				$._const_expr,
 				seq("(", $._any_expr, "->", $._any_expr, ":", $._any_expr, ")"),
 				seq("len", "(", $.varref, ")"),
-				$.varref,
-				$._const,
 				"timeout",
 				"np_",
 				seq("enabled", "(", $._any_expr, ")"),
@@ -221,7 +262,7 @@ module.exports = grammar({
 				),
 			),
 
-		_const_expr: $ => choice($.binary_expr, $.unary_expr, $.number, $.name),
+		_const_expr: $ => choice($.binary_expr, $.unary_expr, $.varref, $._const),
 
 		_expr: $ =>
 			prec(
@@ -283,11 +324,11 @@ module.exports = grammar({
 
 		_const: $ => choice("true", "false", "skip", $.number),
 
-		string: _$ => /\"\w*\"/,
+		string: _ => seq('"', /(?:[^"\\]|\\.)*/, '"'),
 
-		name: _$ => /[a-zA-Z_][a-zA-Z_\d]*/,
+		name: _ => /[a-zA-Z_][a-zA-Z_\d]*/,
 
-		number: _$ => /\d+/,
+		number: _ => /\d+/,
 
 		_sep: _ => choice(";", "->"),
 

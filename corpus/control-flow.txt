@@ -95,6 +95,7 @@ init {
   if
   :: (a != b) -> skip
   :: (a == b) -> skip
+  :: else -> skip
   fi
 }
 
@@ -112,7 +113,9 @@ init {
         (varref
           (name))
         (varref
-          (name))))))
+          (name)))
+      (varref
+        (name)))))
 
 ======
 Labels
