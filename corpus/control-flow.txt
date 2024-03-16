@@ -61,3 +61,30 @@ active proctype counter()
         (varref
           (name))
         (number)))))
+
+===
+If
+===
+
+init {
+  if
+  :: (a != b) -> skip
+  :: (a == b) -> skip
+  fi
+}
+
+---
+
+(source_file
+  (init
+    (options
+      (binary_expr
+        (varref
+          (name))
+        (varref
+          (name)))
+      (binary_expr
+        (varref
+          (name))
+        (varref
+          (name))))))

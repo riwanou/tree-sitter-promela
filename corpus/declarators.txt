@@ -184,3 +184,20 @@ proctype A(mtype x) { mtype state; state = x }
         (name))
       (varref
         (name)))))
+
+======
+Xr/Xs
+======
+
+active proctype S() {	 xs q; xr r }
+
+---
+
+(source_file
+  (proctype
+    (active)
+    (name)
+    (varref
+      (name))
+    (varref
+      (name))))

@@ -103,7 +103,13 @@ module.exports = grammar({
 
 		_sequence: $ => seq($._step, repeat(seq($._sep, $._step))),
 
-		_step: $ => choice($._stmnt, $.decl_lst),
+		_step: $ =>
+			choice(
+				$._stmnt,
+				$.decl_lst,
+				field("xr", seq("xr", $.varref, repeat(seq(",", $.varref)))),
+				seq("xs", $.varref, repeat(seq(",", $.varref))),
+			),
 
 		ivar: $ =>
 			seq(
@@ -141,9 +147,11 @@ module.exports = grammar({
 
 		_stmnt: $ =>
 			choice(
+				seq("if", $.options, "fi"),
 				seq("do", $.options, "od"),
 				seq("atomic", "{", $._sequence, "}"),
 				$.assign,
+				field("assert", seq("assert", $._expr)),
 				$._expr,
 				"break",
 			),
@@ -162,7 +170,21 @@ module.exports = grammar({
 				seq("enabled", "(", $._any_expr, ")"),
 				seq("pc_value", "(", $._any_expr, ")"),
 				seq($.name, "[", $._any_expr, "]", "@", $.name),
-				seq("run", $.name, "(", optional($.arg_lst), ")", optional($.priority)),
+				field(
+					"run",
+					seq(
+						"run",
+						$.name,
+						"(",
+						optional($.arg_lst),
+						")",
+						optional($.priority),
+					),
+				),
+				field(
+					"expansion",
+					seq($.name, "(", optional($.arg_lst), ")", optional($.priority)),
+				),
 			),
 
 		_const_expr: $ => choice($.binary_expr, $.unary_expr, $.number, $.name),

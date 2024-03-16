@@ -17,17 +17,70 @@
   {
     "type": "andor_expr",
     "named": true,
-    "fields": {},
+    "fields": {
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
         {
           "type": "andor_expr",
-          "named": true
-        },
-        {
-          "type": "arg_lst",
           "named": true
         },
         {
@@ -47,10 +100,6 @@
           "named": true
         },
         {
-          "type": "priority",
-          "named": true
-        },
-        {
           "type": "unary_expr",
           "named": true
         },
@@ -64,15 +113,68 @@
   {
     "type": "arg_lst",
     "named": true,
-    "fields": {},
+    "fields": {
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "arg_lst",
-          "named": true
-        },
         {
           "type": "binary_expr",
           "named": true
@@ -83,10 +185,6 @@
         },
         {
           "type": "number",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -103,15 +201,68 @@
   {
     "type": "assign",
     "named": true,
-    "fields": {},
+    "fields": {
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "arg_lst",
-          "named": true
-        },
         {
           "type": "binary_expr",
           "named": true
@@ -122,10 +273,6 @@
         },
         {
           "type": "number",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -143,6 +290,32 @@
     "type": "binary_expr",
     "named": true,
     "fields": {
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
       "left": {
         "multiple": true,
         "required": true,
@@ -408,6 +581,36 @@
             "named": true
           }
         ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
       }
     }
   },
@@ -492,17 +695,70 @@
   {
     "type": "enabler",
     "named": true,
-    "fields": {},
+    "fields": {
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
         {
           "type": "andor_expr",
-          "named": true
-        },
-        {
-          "type": "arg_lst",
           "named": true
         },
         {
@@ -519,10 +775,6 @@
         },
         {
           "type": "number",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -539,17 +791,198 @@
   {
     "type": "init",
     "named": true,
-    "fields": {},
+    "fields": {
+      "assert": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "andor_expr",
+            "named": true
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "assert",
+            "named": false
+          },
+          {
+            "type": "binary_expr",
+            "named": true
+          },
+          {
+            "type": "chanpoll",
+            "named": true
+          },
+          {
+            "type": "enabled",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "len",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "np_",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "pc_value",
+            "named": false
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          },
+          {
+            "type": "skip",
+            "named": false
+          },
+          {
+            "type": "timeout",
+            "named": false
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "varref",
+            "named": true
+          }
+        ]
+      },
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      },
+      "xr": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "varref",
+            "named": true
+          },
+          {
+            "type": "xr",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
         {
           "type": "andor_expr",
-          "named": true
-        },
-        {
-          "type": "arg_lst",
           "named": true
         },
         {
@@ -578,10 +1011,6 @@
         },
         {
           "type": "options",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -598,17 +1027,198 @@
   {
     "type": "inline",
     "named": true,
-    "fields": {},
+    "fields": {
+      "assert": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "andor_expr",
+            "named": true
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "assert",
+            "named": false
+          },
+          {
+            "type": "binary_expr",
+            "named": true
+          },
+          {
+            "type": "chanpoll",
+            "named": true
+          },
+          {
+            "type": "enabled",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "len",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "np_",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "pc_value",
+            "named": false
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          },
+          {
+            "type": "skip",
+            "named": false
+          },
+          {
+            "type": "timeout",
+            "named": false
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "varref",
+            "named": true
+          }
+        ]
+      },
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      },
+      "xr": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "varref",
+            "named": true
+          },
+          {
+            "type": "xr",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
           "type": "andor_expr",
-          "named": true
-        },
-        {
-          "type": "arg_lst",
           "named": true
         },
         {
@@ -640,10 +1250,6 @@
           "named": true
         },
         {
-          "type": "priority",
-          "named": true
-        },
-        {
           "type": "unary_expr",
           "named": true
         },
@@ -657,15 +1263,68 @@
   {
     "type": "ivar",
     "named": true,
-    "fields": {},
+    "fields": {
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "arg_lst",
-          "named": true
-        },
         {
           "type": "binary_expr",
           "named": true
@@ -680,10 +1339,6 @@
         },
         {
           "type": "number",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -715,17 +1370,198 @@
   {
     "type": "never",
     "named": true,
-    "fields": {},
+    "fields": {
+      "assert": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "andor_expr",
+            "named": true
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "assert",
+            "named": false
+          },
+          {
+            "type": "binary_expr",
+            "named": true
+          },
+          {
+            "type": "chanpoll",
+            "named": true
+          },
+          {
+            "type": "enabled",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "len",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "np_",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "pc_value",
+            "named": false
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          },
+          {
+            "type": "skip",
+            "named": false
+          },
+          {
+            "type": "timeout",
+            "named": false
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "varref",
+            "named": true
+          }
+        ]
+      },
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      },
+      "xr": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "varref",
+            "named": true
+          },
+          {
+            "type": "xr",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
         {
           "type": "andor_expr",
-          "named": true
-        },
-        {
-          "type": "arg_lst",
           "named": true
         },
         {
@@ -754,10 +1590,6 @@
         },
         {
           "type": "options",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -801,17 +1633,198 @@
   {
     "type": "options",
     "named": true,
-    "fields": {},
+    "fields": {
+      "assert": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "andor_expr",
+            "named": true
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "assert",
+            "named": false
+          },
+          {
+            "type": "binary_expr",
+            "named": true
+          },
+          {
+            "type": "chanpoll",
+            "named": true
+          },
+          {
+            "type": "enabled",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "len",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "np_",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "pc_value",
+            "named": false
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          },
+          {
+            "type": "skip",
+            "named": false
+          },
+          {
+            "type": "timeout",
+            "named": false
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "varref",
+            "named": true
+          }
+        ]
+      },
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      },
+      "xr": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "varref",
+            "named": true
+          },
+          {
+            "type": "xr",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
         {
           "type": "andor_expr",
-          "named": true
-        },
-        {
-          "type": "arg_lst",
           "named": true
         },
         {
@@ -843,10 +1856,6 @@
           "named": true
         },
         {
-          "type": "priority",
-          "named": true
-        },
-        {
           "type": "unary_expr",
           "named": true
         },
@@ -875,7 +1884,192 @@
   {
     "type": "proctype",
     "named": true,
-    "fields": {},
+    "fields": {
+      "assert": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "andor_expr",
+            "named": true
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "assert",
+            "named": false
+          },
+          {
+            "type": "binary_expr",
+            "named": true
+          },
+          {
+            "type": "chanpoll",
+            "named": true
+          },
+          {
+            "type": "enabled",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "len",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "np_",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "pc_value",
+            "named": false
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          },
+          {
+            "type": "skip",
+            "named": false
+          },
+          {
+            "type": "timeout",
+            "named": false
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "varref",
+            "named": true
+          }
+        ]
+      },
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      },
+      "xr": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "varref",
+            "named": true
+          },
+          {
+            "type": "xr",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -886,10 +2080,6 @@
         },
         {
           "type": "andor_expr",
-          "named": true
-        },
-        {
-          "type": "arg_lst",
           "named": true
         },
         {
@@ -989,17 +2179,198 @@
   {
     "type": "trace",
     "named": true,
-    "fields": {},
+    "fields": {
+      "assert": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "andor_expr",
+            "named": true
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "assert",
+            "named": false
+          },
+          {
+            "type": "binary_expr",
+            "named": true
+          },
+          {
+            "type": "chanpoll",
+            "named": true
+          },
+          {
+            "type": "enabled",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "len",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "np_",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "pc_value",
+            "named": false
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          },
+          {
+            "type": "skip",
+            "named": false
+          },
+          {
+            "type": "timeout",
+            "named": false
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "varref",
+            "named": true
+          }
+        ]
+      },
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      },
+      "xr": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "varref",
+            "named": true
+          },
+          {
+            "type": "xr",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
         {
           "type": "andor_expr",
-          "named": true
-        },
-        {
-          "type": "arg_lst",
           "named": true
         },
         {
@@ -1031,10 +2402,6 @@
           "named": true
         },
         {
-          "type": "priority",
-          "named": true
-        },
-        {
           "type": "unary_expr",
           "named": true
         },
@@ -1053,15 +2420,68 @@
   {
     "type": "unary_expr",
     "named": true,
-    "fields": {},
+    "fields": {
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "arg_lst",
-          "named": true
-        },
         {
           "type": "binary_expr",
           "named": true
@@ -1072,10 +2492,6 @@
         },
         {
           "type": "number",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -1092,15 +2508,68 @@
   {
     "type": "unsigned_decl",
     "named": true,
-    "fields": {},
+    "fields": {
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "arg_lst",
-          "named": true
-        },
         {
           "type": "binary_expr",
           "named": true
@@ -1111,10 +2580,6 @@
         },
         {
           "type": "number",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -1150,15 +2615,68 @@
   {
     "type": "varref",
     "named": true,
-    "fields": {},
+    "fields": {
+      "expansion": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          }
+        ]
+      },
+      "run": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "arg_lst",
-          "named": true
-        },
         {
           "type": "binary_expr",
           "named": true
@@ -1169,10 +2687,6 @@
         },
         {
           "type": "number",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -1320,6 +2834,10 @@
     "named": false
   },
   {
+    "type": "assert",
+    "named": false
+  },
+  {
     "type": "atomic",
     "named": false
   },
@@ -1364,11 +2882,19 @@
     "named": false
   },
   {
+    "type": "fi",
+    "named": false
+  },
+  {
     "type": "full",
     "named": false
   },
   {
     "type": "hidden",
+    "named": false
+  },
+  {
+    "type": "if",
     "named": false
   },
   {
@@ -1473,6 +2999,14 @@
   },
   {
     "type": "unsigned",
+    "named": false
+  },
+  {
+    "type": "xr",
+    "named": false
+  },
+  {
+    "type": "xs",
     "named": false
   },
   {

@@ -56,9 +56,10 @@ Define
 Inline
 ======
 
-inline init() {
+inline recv() {
   requesting = true
 }
+init { recv() }
 
 ---
 
@@ -67,4 +68,6 @@ inline init() {
     (name)
     (assign
       (varref
-        (name)))))
+        (name))))
+  (init
+    (name)))

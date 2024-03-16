@@ -1,0 +1,27 @@
+======
+Assert
+======
+
+active proctype monitor()
+{
+	assert(1+1 != 2);
+	assert(a > b);
+	assert(false)
+}
+
+---
+
+(source_file
+  (proctype
+    (active)
+    (name)
+    (binary_expr
+      (binary_expr
+        (number)
+        (number))
+      (number))
+    (binary_expr
+      (varref
+        (name))
+      (varref
+        (name)))))
