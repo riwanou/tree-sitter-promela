@@ -100,6 +100,8 @@ Macros
 #define N      3    /* Number of processes */ 
 #define L     10    /* Buffer size */
 #define NIL (N+1)   /* for an undefined value */
+#define q (len(q) < 5)
+#define en_SC (node[1]@in_SC)
 
 ---
 
@@ -120,4 +122,15 @@ Macros
       (varref
         (name))
       (number)))
-  (comment))
+  (comment)
+  (macros
+    (name)
+    (binary_expr
+      (varref
+        (name))
+      (number)))
+  (macros
+    (name)
+    (name)
+    (number)
+    (name)))

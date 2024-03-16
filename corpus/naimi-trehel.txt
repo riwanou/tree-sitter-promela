@@ -1,0 +1,455 @@
+=======
+Example
+=======
+
+#define N      3
+#define L     10
+#define NIL (N+1)
+
+#define en_SC (node[1]@in_SC)
+#define dem_SC (node[1]@ask_SC)
+
+mtype = { req, tk };
+
+chan canal[N] = [L] of { mtype, byte };
+byte shared = 0; 
+
+inline initialisation() {
+	father = 1;
+	next = NIL;
+	requesting = false;
+	token = (father == id);
+	if 
+	:: (father == id) -> father = NIL
+	:: else -> skip
+	fi
+}
+
+inline request_cs() {
+	requesting = true;
+	if
+	:: (father != NIL) ->
+		canal[father]!req,id; 
+		father = NIL
+	:: else -> skip
+	fi
+}
+
+inline release_cs() {
+	requesting = false;
+	if
+	:: (next != NIL) -> 
+		canal[next]!tk,id;
+		token = false;
+		next = NIL
+	:: else -> skip
+	fi
+}
+
+inline receive_request_cs() {
+	if
+	:: (father == NIL) ->
+		if 
+		:: (requesting == true) -> next = reqId
+		:: else ->
+			token = false;
+			canal[reqId]!tk,id
+		fi
+	:: else ->
+		canal[father]!req,reqId
+	fi;
+	father = reqId
+}
+
+inline receive_token() {
+	token = true
+}
+
+proctype node(byte id) {
+	bit requesting;
+	bit token;
+
+	byte father;
+	byte next;
+	byte val;
+	mtype typ_mes;
+	byte reqId;
+
+	chan canal_rec = canal[id];
+	xr canal_rec;
+
+	initialisation();
+	do
+	:: ((token == true) && empty(canal_rec) && (requesting == true)) ->
+    in_sc:
+		shared++;
+		assert(shared == 1);
+		shared--;
+		release_cs()
+
+	:: canal_rec ? typ_mes(val) ->
+		reqid = val;
+		if 
+		:: (typ_mes == req) -> receive_request_cs()
+		:: else -> receive_token()
+		fi
+
+	:: (requesting == false) ->
+    ask_sc:
+		request_cs()
+	od;
+}
+
+init {
+	byte proc; 
+	atomic {
+		proc = 0;
+		do
+		:: proc < N ->
+			run node(proc, 0); 
+			proc++
+		:: proc == N -> break 
+		od
+   }
+}
+
+ltl vivacite { ([]dem_SC -> (<>en_SC)) }
+
+---
+
+(source_file
+  (macros
+    (name)
+    (number))
+  (macros
+    (name)
+    (number))
+  (macros
+    (name)
+    (binary_expr
+      (varref
+        (name))
+      (number)))
+  (macros
+    (name)
+    (name)
+    (number)
+    (name))
+  (macros
+    (name)
+    (name)
+    (number)
+    (name))
+ (mtype
+    (name)
+    (name))
+  (decl_lst
+    (one_decl
+      (typename)
+      (ivar
+        (name)
+        (varref
+          (name))
+        (ch_init
+          (varref
+            (name))
+          (typename)
+          (typename))))
+    (one_decl
+      (typename)
+      (ivar
+        (name)
+        (number))))
+  (inline
+    (name)
+    (assign
+      (varref
+        (name))
+      (number))
+    (assign
+      (varref
+        (name))
+      (varref
+        (name)))
+    (assign
+      (varref
+        (name)))
+    (assign
+      (varref
+        (name))
+      (binary_expr
+        (varref
+          (name))
+        (varref
+          (name))))
+    (options
+      (binary_expr
+        (varref
+          (name))
+        (varref
+          (name)))
+      (assign
+        (varref
+          (name))
+        (varref
+          (name)))
+      (varref
+        (name))))
+  (inline
+    (name)
+    (assign
+      (varref
+        (name)))
+    (options
+      (binary_expr
+        (varref
+          (name))
+        (varref
+          (name)))
+      (send
+        (varref
+          (name)
+          (varref
+            (name)))
+        (send_args
+          (arg_lst
+            (varref
+              (name))
+            (varref
+              (name)))))
+      (assign
+        (varref
+          (name))
+        (varref
+          (name)))
+      (varref
+        (name))))
+  (inline
+    (name)
+    (assign
+      (varref
+        (name)))
+    (options
+      (binary_expr
+        (varref
+          (name))
+        (varref
+          (name)))
+      (send
+        (varref
+          (name)
+          (varref
+            (name)))
+        (send_args
+          (arg_lst
+            (varref
+              (name))
+            (varref
+              (name)))))
+      (assign
+        (varref
+          (name)))
+      (assign
+        (varref
+          (name))
+        (varref
+          (name)))
+      (varref
+        (name))))
+  (inline
+    (name)
+    (options
+      (binary_expr
+        (varref
+          (name))
+        (varref
+          (name)))
+      (options
+        (binary_expr
+          (varref
+            (name)))
+        (assign
+          (varref
+            (name))
+          (varref
+            (name)))
+        (varref
+          (name))
+        (assign
+          (varref
+            (name)))
+        (send
+          (varref
+            (name)
+            (varref
+              (name)))
+          (send_args
+            (arg_lst
+              (varref
+                (name))
+              (varref
+                (name))))))
+      (varref
+        (name))
+      (send
+        (varref
+          (name)
+          (varref
+            (name)))
+        (send_args
+          (arg_lst
+            (varref
+              (name))
+            (varref
+              (name))))))
+    (assign
+      (varref
+        (name))
+      (varref
+        (name))))
+  (inline
+    (name)
+    (assign
+      (varref
+        (name))))
+  (proctype
+    (name)
+    (decl_lst
+      (one_decl
+        (typename)
+        (ivar
+          (name))))
+    (decl_lst
+      (one_decl
+        (typename)
+        (ivar
+          (name))))
+    (decl_lst
+      (one_decl
+        (typename)
+        (ivar
+          (name)))
+      (one_decl
+        (typename)
+        (ivar
+          (name))))
+    (decl_lst
+      (one_decl
+        (typename)
+        (ivar
+          (name)))
+      (one_decl
+        (typename)
+        (ivar
+          (name)))
+      (one_decl
+        (typename)
+        (ivar
+          (name)))
+      (one_decl
+        (typename)
+        (ivar
+          (name)))
+      (one_decl
+        (typename)
+        (ivar
+          (name)
+          (varref
+            (name)
+            (varref
+              (name))))))
+    (varref
+      (name))
+    (name)
+    (options
+      (andor_expr
+        (andor_expr
+          (binary_expr
+            (varref
+              (name)))
+          (chanpoll)
+          (varref
+            (name)))
+        (binary_expr
+          (varref
+            (name))))
+      (name)
+      (assign
+        (varref
+          (name)))
+      (binary_expr
+        (varref
+          (name))
+        (number))
+      (assign
+        (varref
+          (name)))
+      (name)
+      (receive
+        (varref
+          (name))
+        (recv_args
+          (recv_arg
+            (varref
+              (name)))
+          (recv_arg
+            (varref
+              (name)))))
+      (assign
+        (varref
+          (name))
+        (varref
+          (name)))
+      (options
+        (binary_expr
+          (varref
+            (name))
+          (varref
+            (name)))
+        (name)
+        (varref
+          (name))
+        (name))
+      (binary_expr
+        (varref
+          (name)))
+      (name)
+      (name)))
+	(init
+	    (decl_lst
+	      (one_decl
+	        (typename)
+	        (ivar
+	          (name))))
+	    (assign
+	      (varref
+	        (name))
+	      (number))
+	    (options
+	      (binary_expr
+	        (varref
+	          (name))
+	        (varref
+	          (name)))
+	      (name)
+	      (arg_lst
+	        (varref
+	          (name))
+	        (number))
+	      (assign
+	        (varref
+	          (name)))
+	      (binary_expr
+	        (varref
+	          (name))
+	        (varref
+	          (name)))))
+	(inline_ltl
+	    (name)
+	    (binary_ltl
+	      (unary_ltl
+	        (varref
+	          (name)))
+	      (unary_ltl
+	        (varref
+	          (name))))))

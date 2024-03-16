@@ -5,6 +5,8 @@ module.exports = grammar({
 
 	extras: $ => [/\s|\\\r?\n/, $.comment],
 
+	word: $ => $.name,
+
 	conflicts: $ => [
 		[$.decl_lst],
 		[$._sequence],
@@ -32,7 +34,7 @@ module.exports = grammar({
 
 		macros: $ =>
 			choice(
-				seq("#define", $.name, optional("("), $._const_expr, optional(")")),
+				seq("#define", $.name, optional("("), $._any_expr, optional(")")),
 				seq("#include", $.string),
 			),
 
@@ -152,7 +154,8 @@ module.exports = grammar({
 
 		visible: _$ => choice("hidden", "show"),
 
-		_sequence: $ => seq($._step, repeat(seq($._sep, $._step))),
+		_sequence: $ =>
+			seq($._step, repeat(seq($._sep, $._step)), optional($._sep)),
 
 		_step: $ =>
 			choice(
@@ -272,7 +275,8 @@ module.exports = grammar({
 				),
 			),
 
-		_const_expr: $ => choice($.binary_expr, $.unary_expr, $.varref, $._const),
+		_const_expr: $ =>
+			choice($.binary_expr, $.andor_expr, $.unary_expr, $.varref, $._const),
 
 		_expr: $ =>
 			prec(
@@ -336,9 +340,9 @@ module.exports = grammar({
 
 		string: _ => seq('"', /(?:[^"\\]|\\.)*/, '"'),
 
-		name: _ => /[a-zA-Z_][a-zA-Z_\d]*/,
+		name: _ => token(/[a-zA-Z_][a-zA-Z_\d]*/),
 
-		number: _ => /\d+/,
+		number: _ => token(/\d+/),
 
 		_sep: _ => choice(";", "->"),
 
