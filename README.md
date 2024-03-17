@@ -17,7 +17,7 @@ indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
 name = "promela"
-source = { git = "https://github.com/riwanou/tree-sitter-promela", rev = "048ed7e7b17cf7a78543abd4c90a7892491656d1" }
+source = { git = "https://github.com/riwanou/tree-sitter-promela", rev = "69985863d3a1c11d970d9a3185202d0bf3b8d843" }
 ```
 
 Fetch and build the grammar
@@ -27,12 +27,12 @@ hx -g fetch
 hx -g build
 ```
 
-Copy the highlight query from the repository in `runtime/queries/promela`
+Copy the highlight and indent queries from the repository in `runtime/queries/promela`
 
 ```sh
 # from .config/helix or you custom helix config directory
-mkdir -p runtime/queries/promela 
-cp runtime/grammars/sources/promela/queries/highlights.scm runtime/queries/promela
+mkdir -p ~/.config/helix/runtime/queries/promela 
+cp ~/.config/helix/runtime/grammars/sources/promela/queries/* ~/.config/helix/runtime/queries/promela
 ```
 
 ## References
