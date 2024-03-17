@@ -78,6 +78,7 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
             (name))
           (varref
             (name))))
+      (ltl_operator)
       (binary_expr
         (varref
           (name))
@@ -88,6 +89,7 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
       (unary_ltl
         (varref
           (name)))
+      (ltl_operator)
       (unary_ltl
         (varref
           (name))))))
@@ -106,30 +108,30 @@ Macros
 ---
 
 (source_file
-  (macros
+  (macro
     (string))
-  (macros
+  (macro
     (name)
     (number))
   (comment)
-  (macros
+  (macro
     (name)
     (number))
   (comment)
-  (macros
+  (macro
     (name)
     (binary_expr
       (varref
         (name))
       (number)))
   (comment)
-  (macros
+  (macro
     (name)
     (binary_expr
       (varref
         (name))
       (number)))
-  (macros
+  (macro
     (name)
     (name)
     (number)

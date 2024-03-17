@@ -113,9 +113,7 @@ init {
         (varref
           (name))
         (varref
-          (name)))
-      (varref
-        (name)))))
+          (name))))))
 
 ======
 Labels

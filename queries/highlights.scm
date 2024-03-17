@@ -63,9 +63,6 @@ label: (name) @label
  "always"
  "eventually"
  "negation"
- "until"
- "implies"
- "equivalent"
  "of"
 ] @keyword.operator
 
@@ -104,15 +101,8 @@ label: (name) @label
  "[]"
  "<>"
  "!"
- "U"
- "W"
- "V"
  "&&"
  "||"
- "/\\"
- "\\/"
- "->"
- "<->"
  "|"
  "="
  "^"
@@ -137,6 +127,8 @@ label: (name) @label
  "--"
  "@"
 ] @operator
+
+((ltl_operator) @operator)
 
 [
  "eval"

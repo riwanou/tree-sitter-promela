@@ -261,12 +261,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "U"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -294,12 +295,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "until"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -327,12 +329,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "W"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -360,12 +363,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "V"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -393,12 +397,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "&&"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -426,12 +431,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "||"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -459,12 +465,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "/\\"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -492,12 +499,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "\\/"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -525,12 +533,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "->"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -558,12 +567,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "implies"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -591,12 +601,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "<->"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",
@@ -624,12 +635,13 @@
                 }
               },
               {
-                "type": "FIELD",
-                "name": "operator",
+                "type": "ALIAS",
                 "content": {
                   "type": "STRING",
                   "value": "equivalent"
-                }
+                },
+                "named": true,
+                "value": "ltl_operator"
               },
               {
                 "type": "FIELD",

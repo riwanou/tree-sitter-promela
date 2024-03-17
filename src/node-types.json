@@ -680,60 +680,6 @@
           }
         ]
       },
-      "operator": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "&&",
-            "named": false
-          },
-          {
-            "type": "->",
-            "named": false
-          },
-          {
-            "type": "/\\",
-            "named": false
-          },
-          {
-            "type": "<->",
-            "named": false
-          },
-          {
-            "type": "U",
-            "named": false
-          },
-          {
-            "type": "V",
-            "named": false
-          },
-          {
-            "type": "W",
-            "named": false
-          },
-          {
-            "type": "\\/",
-            "named": false
-          },
-          {
-            "type": "equivalent",
-            "named": false
-          },
-          {
-            "type": "implies",
-            "named": false
-          },
-          {
-            "type": "until",
-            "named": false
-          },
-          {
-            "type": "||",
-            "named": false
-          }
-        ]
-      },
       "right": {
         "multiple": true,
         "required": true,
@@ -788,6 +734,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ltl_operator",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -4954,10 +4910,6 @@
     "named": false
   },
   {
-    "type": "/\\",
-    "named": false
-  },
-  {
     "type": ":",
     "named": false
   },
@@ -4967,10 +4919,6 @@
   },
   {
     "type": "<",
-    "named": false
-  },
-  {
-    "type": "<->",
     "named": false
   },
   {
@@ -5014,27 +4962,11 @@
     "named": false
   },
   {
-    "type": "U",
-    "named": false
-  },
-  {
-    "type": "V",
-    "named": false
-  },
-  {
-    "type": "W",
-    "named": false
-  },
-  {
     "type": "[",
     "named": false
   },
   {
     "type": "[]",
-    "named": false
-  },
-  {
-    "type": "\\/",
     "named": false
   },
   {
@@ -5106,10 +5038,6 @@
     "named": false
   },
   {
-    "type": "equivalent",
-    "named": false
-  },
-  {
     "type": "eval",
     "named": false
   },
@@ -5142,10 +5070,6 @@
     "named": false
   },
   {
-    "type": "implies",
-    "named": false
-  },
-  {
     "type": "init",
     "named": false
   },
@@ -5164,6 +5088,10 @@
   {
     "type": "ltl",
     "named": false
+  },
+  {
+    "type": "ltl_operator",
+    "named": true
   },
   {
     "type": "mtype",
@@ -5263,10 +5191,6 @@
   },
   {
     "type": "unsigned",
-    "named": false
-  },
-  {
-    "type": "until",
     "named": false
   },
   {

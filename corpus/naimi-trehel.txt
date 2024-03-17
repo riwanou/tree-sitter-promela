@@ -118,24 +118,24 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
 ---
 
 (source_file
-  (macros
+  (macro
     (name)
     (number))
-  (macros
+  (macro
     (name)
     (number))
-  (macros
+  (macro
     (name)
     (binary_expr
       (varref
         (name))
       (number)))
-  (macros
+  (macro
     (name)
     (name)
     (number)
     (name))
-  (macros
+  (macro
     (name)
     (name)
     (number)
@@ -192,9 +192,7 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
         (varref
           (name))
         (varref
-          (name)))
-      (varref
-        (name))))
+          (name)))))
   (inline
     (name)
     (assign
@@ -221,9 +219,7 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
         (varref
           (name))
         (varref
-          (name)))
-      (varref
-        (name))))
+          (name)))))
   (inline
     (name)
     (assign
@@ -253,9 +249,7 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
         (varref
           (name))
         (varref
-          (name)))
-      (varref
-        (name))))
+          (name)))))
   (inline
     (name)
     (options
@@ -273,8 +267,6 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
             (name))
           (varref
             (name)))
-        (varref
-          (name))
         (assign
           (varref
             (name)))
@@ -289,8 +281,6 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
                 (name))
               (varref
                 (name))))))
-      (varref
-        (name))
       (send
         (varref
           (name)
@@ -407,8 +397,6 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
           (varref
             (name)))
         (name)
-        (varref
-          (name))
         (name))
       (binary_expr
         (varref
@@ -450,6 +438,7 @@ ltl vivacite { ([]dem_SC -> (<>en_SC)) }
 	      (unary_ltl
 	        (varref
 	          (name)))
+        (ltl_operator)
 	      (unary_ltl
 	        (varref
 	          (name))))))

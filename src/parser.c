@@ -201,18 +201,18 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_eventually] = "eventually",
   [anon_sym_BANG] = "!",
   [anon_sym_negation] = "negation",
-  [anon_sym_U] = "U",
-  [anon_sym_until] = "until",
-  [anon_sym_W] = "W",
-  [anon_sym_V] = "V",
+  [anon_sym_U] = "ltl_operator",
+  [anon_sym_until] = "ltl_operator",
+  [anon_sym_W] = "ltl_operator",
+  [anon_sym_V] = "ltl_operator",
   [anon_sym_AMP_AMP] = "&&",
   [anon_sym_PIPE_PIPE] = "||",
-  [anon_sym_SLASH_BSLASH] = "/\\",
-  [anon_sym_BSLASH_SLASH] = "\\/",
+  [anon_sym_SLASH_BSLASH] = "ltl_operator",
+  [anon_sym_BSLASH_SLASH] = "ltl_operator",
   [anon_sym_DASH_GT] = "->",
-  [anon_sym_implies] = "implies",
-  [anon_sym_LT_DASH_GT] = "<->",
-  [anon_sym_equivalent] = "equivalent",
+  [anon_sym_implies] = "ltl_operator",
+  [anon_sym_LT_DASH_GT] = "ltl_operator",
+  [anon_sym_equivalent] = "ltl_operator",
   [anon_sym_proctype] = "proctype",
   [anon_sym_inline] = "inline",
   [anon_sym_init] = "init",
@@ -370,17 +370,17 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_BANG] = anon_sym_BANG,
   [anon_sym_negation] = anon_sym_negation,
   [anon_sym_U] = anon_sym_U,
-  [anon_sym_until] = anon_sym_until,
-  [anon_sym_W] = anon_sym_W,
-  [anon_sym_V] = anon_sym_V,
+  [anon_sym_until] = anon_sym_U,
+  [anon_sym_W] = anon_sym_U,
+  [anon_sym_V] = anon_sym_U,
   [anon_sym_AMP_AMP] = anon_sym_AMP_AMP,
   [anon_sym_PIPE_PIPE] = anon_sym_PIPE_PIPE,
-  [anon_sym_SLASH_BSLASH] = anon_sym_SLASH_BSLASH,
-  [anon_sym_BSLASH_SLASH] = anon_sym_BSLASH_SLASH,
+  [anon_sym_SLASH_BSLASH] = anon_sym_U,
+  [anon_sym_BSLASH_SLASH] = anon_sym_U,
   [anon_sym_DASH_GT] = anon_sym_DASH_GT,
-  [anon_sym_implies] = anon_sym_implies,
-  [anon_sym_LT_DASH_GT] = anon_sym_LT_DASH_GT,
-  [anon_sym_equivalent] = anon_sym_equivalent,
+  [anon_sym_implies] = anon_sym_U,
+  [anon_sym_LT_DASH_GT] = anon_sym_U,
+  [anon_sym_equivalent] = anon_sym_U,
   [anon_sym_proctype] = anon_sym_proctype,
   [anon_sym_inline] = anon_sym_inline,
   [anon_sym_init] = anon_sym_init,
@@ -590,19 +590,19 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
   },
   [anon_sym_U] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_until] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_W] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_V] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_AMP_AMP] = {
     .visible = true,
@@ -614,11 +614,11 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
   },
   [anon_sym_SLASH_BSLASH] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_BSLASH_SLASH] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_DASH_GT] = {
     .visible = true,
@@ -626,15 +626,15 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
   },
   [anon_sym_implies] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_LT_DASH_GT] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_equivalent] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_proctype] = {
     .visible = true,
@@ -1236,26 +1236,26 @@ static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [18] = {.index = 100, .length = 4},
   [19] = {.index = 104, .length = 4},
   [20] = {.index = 108, .length = 6},
-  [21] = {.index = 114, .length = 3},
-  [22] = {.index = 117, .length = 4},
-  [23] = {.index = 121, .length = 4},
-  [24] = {.index = 125, .length = 3},
-  [25] = {.index = 128, .length = 5},
-  [26] = {.index = 133, .length = 9},
-  [27] = {.index = 142, .length = 6},
-  [28] = {.index = 148, .length = 9},
-  [29] = {.index = 157, .length = 10},
-  [30] = {.index = 167, .length = 6},
-  [31] = {.index = 173, .length = 9},
-  [32] = {.index = 182, .length = 9},
-  [33] = {.index = 191, .length = 9},
-  [34] = {.index = 200, .length = 10},
-  [35] = {.index = 210, .length = 9},
-  [36] = {.index = 219, .length = 10},
-  [37] = {.index = 229, .length = 10},
-  [38] = {.index = 239, .length = 9},
-  [39] = {.index = 248, .length = 10},
-  [40] = {.index = 258, .length = 10},
+  [21] = {.index = 114, .length = 2},
+  [22] = {.index = 116, .length = 4},
+  [23] = {.index = 120, .length = 4},
+  [24] = {.index = 124, .length = 3},
+  [25] = {.index = 127, .length = 5},
+  [26] = {.index = 132, .length = 9},
+  [27] = {.index = 141, .length = 6},
+  [28] = {.index = 147, .length = 9},
+  [29] = {.index = 156, .length = 10},
+  [30] = {.index = 166, .length = 6},
+  [31] = {.index = 172, .length = 9},
+  [32] = {.index = 181, .length = 9},
+  [33] = {.index = 190, .length = 9},
+  [34] = {.index = 199, .length = 10},
+  [35] = {.index = 209, .length = 9},
+  [36] = {.index = 218, .length = 10},
+  [37] = {.index = 228, .length = 10},
+  [38] = {.index = 238, .length = 9},
+  [39] = {.index = 247, .length = 10},
+  [40] = {.index = 257, .length = 10},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
@@ -1395,29 +1395,28 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_run, 1, .inherited = true},
   [114] =
     {field_left, 0},
-    {field_operator, 1},
     {field_right, 2},
-  [117] =
+  [116] =
     {field_printf, 0},
     {field_printf, 1},
     {field_printf, 2},
     {field_printf, 3},
-  [121] =
+  [120] =
     {field_printm, 0},
     {field_printm, 1},
     {field_printm, 2},
     {field_printm, 3},
-  [125] =
+  [124] =
     {field_expansion, 5, .inherited = true},
     {field_function, 5, .inherited = true},
     {field_run, 5, .inherited = true},
-  [128] =
+  [127] =
     {field_function, 1},
     {field_run, 0},
     {field_run, 2},
     {field_run, 3},
     {field_run, 4},
-  [133] =
+  [132] =
     {field_assert, 5, .inherited = true},
     {field_expansion, 5, .inherited = true},
     {field_function, 1},
@@ -1427,14 +1426,14 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 5, .inherited = true},
     {field_run, 5, .inherited = true},
     {field_xr, 5, .inherited = true},
-  [142] =
+  [141] =
     {field_function, 1},
     {field_run, 0},
     {field_run, 2},
     {field_run, 3},
     {field_run, 4},
     {field_run, 5},
-  [148] =
+  [147] =
     {field_assert, 6, .inherited = true},
     {field_expansion, 6, .inherited = true},
     {field_function, 1},
@@ -1444,7 +1443,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 6, .inherited = true},
     {field_run, 6, .inherited = true},
     {field_xr, 6, .inherited = true},
-  [157] =
+  [156] =
     {field_assert, 6, .inherited = true},
     {field_expansion, 6, .inherited = true},
     {field_function, 1},
@@ -1455,14 +1454,14 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 6, .inherited = true},
     {field_run, 6, .inherited = true},
     {field_xr, 6, .inherited = true},
-  [167] =
+  [166] =
     {field_printf, 0},
     {field_printf, 1},
     {field_printf, 2},
     {field_printf, 3},
     {field_printf, 4},
     {field_printf, 5},
-  [173] =
+  [172] =
     {field_assert, 6, .inherited = true},
     {field_expansion, 6, .inherited = true},
     {field_function, 2},
@@ -1472,7 +1471,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 6, .inherited = true},
     {field_run, 6, .inherited = true},
     {field_xr, 6, .inherited = true},
-  [182] =
+  [181] =
     {field_expansion, 1, .inherited = true},
     {field_expansion, 3, .inherited = true},
     {field_expansion, 5, .inherited = true},
@@ -1482,7 +1481,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_run, 1, .inherited = true},
     {field_run, 3, .inherited = true},
     {field_run, 5, .inherited = true},
-  [191] =
+  [190] =
     {field_assert, 7, .inherited = true},
     {field_expansion, 7, .inherited = true},
     {field_function, 1},
@@ -1492,7 +1491,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 7, .inherited = true},
     {field_run, 7, .inherited = true},
     {field_xr, 7, .inherited = true},
-  [200] =
+  [199] =
     {field_assert, 7, .inherited = true},
     {field_expansion, 7, .inherited = true},
     {field_function, 1},
@@ -1503,7 +1502,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 7, .inherited = true},
     {field_run, 7, .inherited = true},
     {field_xr, 7, .inherited = true},
-  [210] =
+  [209] =
     {field_assert, 7, .inherited = true},
     {field_expansion, 7, .inherited = true},
     {field_function, 2},
@@ -1513,7 +1512,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 7, .inherited = true},
     {field_run, 7, .inherited = true},
     {field_xr, 7, .inherited = true},
-  [219] =
+  [218] =
     {field_assert, 7, .inherited = true},
     {field_expansion, 7, .inherited = true},
     {field_function, 2},
@@ -1524,7 +1523,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 7, .inherited = true},
     {field_run, 7, .inherited = true},
     {field_xr, 7, .inherited = true},
-  [229] =
+  [228] =
     {field_assert, 8, .inherited = true},
     {field_expansion, 8, .inherited = true},
     {field_function, 1},
@@ -1535,7 +1534,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 8, .inherited = true},
     {field_run, 8, .inherited = true},
     {field_xr, 8, .inherited = true},
-  [239] =
+  [238] =
     {field_assert, 8, .inherited = true},
     {field_expansion, 8, .inherited = true},
     {field_function, 2},
@@ -1545,7 +1544,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 8, .inherited = true},
     {field_run, 8, .inherited = true},
     {field_xr, 8, .inherited = true},
-  [248] =
+  [247] =
     {field_assert, 8, .inherited = true},
     {field_expansion, 8, .inherited = true},
     {field_function, 2},
@@ -1556,7 +1555,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_printm, 8, .inherited = true},
     {field_run, 8, .inherited = true},
     {field_xr, 8, .inherited = true},
-  [258] =
+  [257] =
     {field_assert, 9, .inherited = true},
     {field_expansion, 9, .inherited = true},
     {field_function, 2},
@@ -1571,6 +1570,9 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
 
 static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
   [0] = {0},
+  [21] = {
+    [1] = anon_sym_U,
+  },
 };
 
 static const uint16_t ts_non_terminal_alias_map[] = {

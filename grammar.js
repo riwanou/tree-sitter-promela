@@ -78,7 +78,7 @@ module.exports = grammar({
 						seq(
 							field("left", $._ltl),
 							// @ts-ignore
-							field("operator", operator),
+							alias(operator, $.ltl_operator),
 							field("right", $._ltl),
 						),
 					);
