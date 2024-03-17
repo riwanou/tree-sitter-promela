@@ -732,16 +732,8 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
           "type": "SYMBOL",
-          "name": "_sequence"
-        },
-        {
-          "type": "STRING",
-          "value": "}"
+          "name": "block"
         }
       ]
     },
@@ -785,16 +777,8 @@
           "value": ")"
         },
         {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
           "type": "SYMBOL",
-          "name": "_sequence"
-        },
-        {
-          "type": "STRING",
-          "value": "}"
+          "name": "block"
         }
       ]
     },
@@ -806,28 +790,8 @@
           "value": "init"
         },
         {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
           "type": "SYMBOL",
-          "name": "_sequence"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_sep"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "}"
+          "name": "block"
         }
       ]
     },
@@ -839,16 +803,8 @@
           "value": "never"
         },
         {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
           "type": "SYMBOL",
-          "name": "_sequence"
-        },
-        {
-          "type": "STRING",
-          "value": "}"
+          "name": "block"
         }
       ]
     },
@@ -860,16 +816,8 @@
           "value": "trace"
         },
         {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
           "type": "SYMBOL",
-          "name": "_sequence"
-        },
-        {
-          "type": "STRING",
-          "value": "}"
+          "name": "block"
         }
       ]
     },
@@ -1903,16 +1851,8 @@
               "value": "atomic"
             },
             {
-              "type": "STRING",
-              "value": "{"
-            },
-            {
               "type": "SYMBOL",
-              "name": "_sequence"
-            },
-            {
-              "type": "STRING",
-              "value": "}"
+              "name": "block"
             }
           ]
         },
@@ -1924,35 +1864,14 @@
               "value": "d_step"
             },
             {
-              "type": "STRING",
-              "value": "{"
-            },
-            {
               "type": "SYMBOL",
-              "name": "_sequence"
-            },
-            {
-              "type": "STRING",
-              "value": "}"
+              "name": "block"
             }
           ]
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "{"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_sequence"
-            },
-            {
-              "type": "STRING",
-              "value": "}"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "block"
         },
         {
           "type": "SYMBOL",
@@ -2356,6 +2275,31 @@
         }
       ]
     },
+    "block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_sequence"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
     "_const_expr": {
       "type": "CHOICE",
       "members": [
@@ -2472,10 +2416,14 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_sequence"
+            "name": "option"
           }
         ]
       }
+    },
+    "option": {
+      "type": "SYMBOL",
+      "name": "_sequence"
     },
     "andor_expr": {
       "type": "CHOICE",
@@ -3204,9 +3152,6 @@
   "conflicts": [
     [
       "decl_lst"
-    ],
-    [
-      "_sequence"
     ],
     [
       "varref",

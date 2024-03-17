@@ -14,21 +14,23 @@ init {
 
 (source_file
   (init
-    (assign
-      (varref
-        (name))
-      (varref
-        (name)))
-    (assign
-      (varref
-        (name))
-      (varref
-        (name)))
-    (assign
-      (varref
-        (name))
-      (varref
-        (name)))))
+    (block
+      (block
+        (assign
+          (varref
+            (name))
+          (varref
+            (name)))
+        (assign
+          (varref
+            (name))
+          (varref
+            (name)))
+        (assign
+          (varref
+            (name))
+          (varref
+            (name)))))))
 
 =====
 Break
@@ -46,14 +48,18 @@ init {
 
 (source_file
   (init
-    (name)
-    (options
-      (varref
-        (name))
-      (varref
-        (name))
-      (varref
-        (name)))))
+    (block
+      (name)
+      (options
+        (option
+          (varref
+            (name))
+          (varref
+            (name)))
+        (option
+          (varref
+            (name)))
+        (option)))))
 
 ===
 Do
@@ -75,17 +81,21 @@ active proctype counter()
   (proctype
     (active)
     (name)
-    (options
-      (assign
-        (varref
-          (name)))
-      (assign
-        (varref
-          (name)))
-      (binary_expr
-        (varref
-          (name))
-        (number)))))
+    (block
+      (options
+        (option
+          (assign
+            (varref
+              (name))))
+        (option
+          (assign
+            (varref
+              (name))))
+        (option
+          (binary_expr
+            (varref
+              (name))
+            (number)))))))
 
 ===
 If
@@ -103,17 +113,21 @@ init {
 
 (source_file
   (init
-    (options
-      (binary_expr
-        (varref
-          (name))
-        (varref
-          (name)))
-      (binary_expr
-        (varref
-          (name))
-        (varref
-          (name))))))
+    (block
+      (options
+        (option
+          (binary_expr
+            (varref
+              (name))
+            (varref
+              (name))))
+        (option
+          (binary_expr
+            (varref
+              (name))
+            (varref
+              (name))))
+        (option)))))
 
 ======
 Labels
@@ -136,22 +150,25 @@ S2:		q?v
   (proctype
     (active)
     (name)
-    (name)
-    (name)
-    (options
-      (send
-        (varref
-          (name))
-        (send_args
-          (arg_lst
-            (varref
-              (name)))))
+    (block
       (name)
-      (receive
-        (varref
-          (name))
-        (recv_args
-          (recv_arg
+      (name)
+      (options
+        (option
+          (send
             (varref
-              (name))))))
-    (comment)))
+              (name))
+            (send_args
+              (arg_lst
+                (varref
+                  (name)))))
+          (name)
+          (receive
+            (varref
+              (name))
+            (recv_args
+              (recv_arg
+                (varref
+                  (name))))))
+        (option))
+      (comment))))

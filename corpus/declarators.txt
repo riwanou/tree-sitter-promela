@@ -15,19 +15,21 @@ active [4] proctype B() { run A(_pid) }
         (typename)
         (ivar
           (name))))
-    (decl_lst
-      (one_decl
-        (typename)
-        (ivar
-          (name)))))
+    (block
+      (decl_lst
+        (one_decl
+          (typename)
+          (ivar
+            (name))))))
   (proctype
     (active
       (number))
     (name)
-    (name)
-    (arg_lst
-      (varref
-        (name)))))
+    (block
+      (name)
+      (arg_lst
+        (varref
+          (name))))))
 
 ======
 Arrays
@@ -49,24 +51,25 @@ init {
         (varref
           (name)))))
   (init
-    (assign
-      (varref
-        (name)
-        (number))
-      (binary_expr
+    (block
+      (assign
         (varref
           (name)
           (number))
         (binary_expr
-          (number)
           (varref
             (name)
-            (binary_expr
+            (number))
+          (binary_expr
+            (number)
+            (varref
+              (name)
               (binary_expr
-                (number)
-                (number))
-              (varref
-                (name)))))))))
+                (binary_expr
+                  (number)
+                  (number))
+                (varref
+                  (name))))))))))
 
 ====
 Chan
@@ -142,7 +145,8 @@ init { skip }
 ---
 
 (source_file
-  (init))
+      (init
+        (block)))
 
 =====
 Mtype
@@ -176,16 +180,17 @@ proctype A(mtype x) { mtype state; state = x }
         (typename)
         (ivar
           (name))))
-    (decl_lst
-      (one_decl
-        (typename)
-        (ivar
-          (name))))
-    (assign
-      (varref
-        (name))
-      (varref
-        (name)))))
+    (block
+      (decl_lst
+        (one_decl
+          (typename)
+          (ivar
+            (name))))
+      (assign
+        (varref
+          (name))
+        (varref
+          (name))))))
 
 ======
 Xr/Xs
@@ -199,7 +204,8 @@ active proctype S() {	 xs q; xr r }
   (proctype
     (active)
     (name)
-    (varref
-      (name))
-    (varref
-      (name))))
+    (block
+      (varref
+        (name))
+      (varref
+        (name)))))

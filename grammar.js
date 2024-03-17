@@ -7,12 +7,7 @@ module.exports = grammar({
 
 	word: $ => $.name,
 
-	conflicts: $ => [
-		[$.decl_lst],
-		[$._sequence],
-		[$.varref, $._any_expr],
-		[$.varref, $._stmnt],
-	],
+	conflicts: $ => [[$.decl_lst], [$.varref, $._any_expr], [$.varref, $._stmnt]],
 
 	rules: {
 		source_file: $ => repeat1($._module),
@@ -96,9 +91,7 @@ module.exports = grammar({
 				")",
 				optional($.priority),
 				optional($.enabler),
-				"{",
-				$._sequence,
-				"}",
+				$.block,
 			),
 
 		inline: $ =>
@@ -108,16 +101,14 @@ module.exports = grammar({
 				"(",
 				field("params", optional($.decl_lst)),
 				")",
-				"{",
-				$._sequence,
-				"}",
+				$.block,
 			),
 
-		init: $ => seq("init", "{", $._sequence, optional($._sep), "}"),
+		init: $ => seq("init", $.block),
 
-		never: $ => seq("never", "{", $._sequence, "}"),
+		never: $ => seq("never", $.block),
 
-		trace: $ => seq("trace", "{", $._sequence, "}"),
+		trace: $ => seq("trace", $.block),
 
 		utype: $ => seq("typedef", $.name, "{", $.decl_lst, "}"),
 
@@ -233,9 +224,9 @@ module.exports = grammar({
 			choice(
 				seq("if", $.options, "fi"),
 				seq("do", $.options, "od"),
-				seq("atomic", "{", $._sequence, "}"),
-				seq("d_step", "{", $._sequence, "}"),
-				seq("{", $._sequence, "}"),
+				seq("atomic", $.block),
+				seq("d_step", $.block),
+				$.block,
 				$.send,
 				$.receive,
 				$.assign,
@@ -277,6 +268,8 @@ module.exports = grammar({
 				),
 			),
 
+		block: $ => seq("{", optional($._sequence), "}"),
+
 		_const_expr: $ =>
 			choice($.binary_expr, $.andor_expr, $.unary_expr, $.varref, $._const),
 
@@ -293,7 +286,9 @@ module.exports = grammar({
 
 		chanpoll: _$ => choice("full", "empty", "nfull", "nempty"),
 
-		options: $ => repeat1(seq(":", ":", $._sequence)),
+		options: $ => repeat1(seq(":", ":", $.option)),
+
+		option: $ => $._sequence,
 
 		andor_expr: $ =>
 			choice(

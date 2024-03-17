@@ -13,17 +13,18 @@ Comments
   (comment)
   (init
     (comment)
-    (decl_lst
-      (one_decl
-        (typename)
-        (comment)
-        (ivar
-          (name))))
-    (comment)
-    (assign
-      (varref
-        (name))
-      (comment))))
+    (block
+      (decl_lst
+        (one_decl
+          (typename)
+          (comment)
+          (ivar
+            (name))))
+      (comment)
+      (assign
+        (varref
+          (name))
+        (comment)))))
 
 ======
 Inline
@@ -39,11 +40,13 @@ init { recv() }
 (source_file
   (inline
     (name)
-    (assign
-      (varref
-        (name))))
+    (block
+      (assign
+        (varref
+          (name)))))
   (init
-    (name)))
+    (block
+      (name))))
 
 ===
 Ltl

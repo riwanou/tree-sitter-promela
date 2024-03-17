@@ -15,16 +15,17 @@ active proctype monitor()
   (proctype
     (active)
     (name)
-    (binary_expr
+    (block
       (binary_expr
-        (number)
+        (binary_expr
+          (number)
+          (number))
         (number))
-      (number))
-    (binary_expr
-      (varref
-        (name))
-      (varref
-        (name)))))
+      (binary_expr
+        (varref
+          (name))
+        (varref
+          (name))))))
 
 ======
 Assign
@@ -41,31 +42,32 @@ init {
 
 (source_file
   (init
-    (assign
-      (varref
-        (name))
-      (number))
-    (assign
-      (varref
-        (name)
+    (block
+      (assign
+        (varref
+          (name))
+        (number))
+      (assign
         (varref
           (name)
           (varref
-            (name))))
-      (binary_expr
+            (name)
+            (varref
+              (name))))
         (binary_expr
-          (varref
-            (name))
-          (number))
-        (number)))
-    (assign
-      (varref
-        (name))
-      (varref
-        (name)))
-    (assign
-      (varref
-        (name)))))
+          (binary_expr
+            (varref
+              (name))
+            (number))
+          (number)))
+      (assign
+        (varref
+          (name))
+        (varref
+          (name)))
+      (assign
+        (varref
+          (name))))))
 
 =========
 Condition
@@ -86,14 +88,21 @@ init {
 
 (source_file
   (init
-    (options
-      (number)
-      (number)
-      (binary_expr
-        (varref
-          (name))
-        (varref
-          (name))))))
+    (block
+      (options
+        (option
+          (number))
+        (option
+          (number))
+        (option)
+        (option)
+        (option)
+        (option
+          (binary_expr
+            (varref
+              (name))
+            (varref
+              (name))))))))
 
 =============
 Printf/Printm
@@ -108,19 +117,20 @@ init {
 
 (source_file
   (init
-    (string)
-    (arg_lst
-      (binary_expr
-        (unary_expr
-          (number))
-        (unary_expr
-          (number)))
-      (binary_expr
-        (unary_expr
-          (number))
-        (unary_expr
-          (number))))
-    (name)))
+    (block
+      (string)
+      (arg_lst
+        (binary_expr
+          (unary_expr
+            (number))
+          (unary_expr
+            (number)))
+        (binary_expr
+          (unary_expr
+            (number))
+          (unary_expr
+            (number))))
+      (name))))
 
 =======
 Receive
@@ -137,33 +147,34 @@ init {
 
 (source_file
   (init
-    (receive
-      (varref
-        (name))
-      (recv_args
-        (recv_arg
-          (varref
-            (name)))))
-    (receive
-      (varref
-        (name))
-      (recv_args
-        (recv_arg
-          (varref
-            (name)))))
-    (receive
-      (varref
-        (name))
-      (recv_args
-        (recv_arg
-          (number))))
-    (receive
-      (varref
-        (name))
-      (recv_args
-        (recv_arg
-          (varref
-            (name)))))))
+    (block
+      (receive
+        (varref
+          (name))
+        (recv_args
+          (recv_arg
+            (varref
+              (name)))))
+      (receive
+        (varref
+          (name))
+        (recv_args
+          (recv_arg
+            (varref
+              (name)))))
+      (receive
+        (varref
+          (name))
+        (recv_args
+          (recv_arg
+            (number))))
+      (receive
+        (varref
+          (name))
+        (recv_args
+          (recv_arg
+            (varref
+              (name))))))))
 
 ====
 Send
@@ -180,30 +191,31 @@ active proctype tester()
   (proctype
     (active)
     (name)
-    (send
-      (varref
-        (name))
-      (send_args
-        (arg_lst
-          (unary_expr
-            (number)))))
-    (send
-      (varref
-        (name))
-      (send_args
-        (arg_lst
-          (unary_expr
-            (number)))))
-    (send
-      (varref
-        (name))
-      (send_args
-        (arg_lst
-          (unary_expr
-            (number)))))
-    (send
-      (varref
-        (name))
-      (send_args
-        (arg_lst
-          (number))))))
+    (block
+      (send
+        (varref
+          (name))
+        (send_args
+          (arg_lst
+            (unary_expr
+              (number)))))
+      (send
+        (varref
+          (name))
+        (send_args
+          (arg_lst
+            (unary_expr
+              (number)))))
+      (send
+        (varref
+          (name))
+        (send_args
+          (arg_lst
+            (unary_expr
+              (number)))))
+      (send
+        (varref
+          (name))
+        (send_args
+          (arg_lst
+            (number)))))))

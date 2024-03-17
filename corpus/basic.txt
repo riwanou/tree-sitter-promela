@@ -52,26 +52,27 @@ init {
 ---
 
 (source_file
-	(init
-	  (decl_lst
-	    (one_decl
-	      (typename)
-	      (ivar
-	        (name)
-	        (ch_init
+  (init
+    (block
+      (decl_lst
+        (one_decl
+          (typename)
+          (ivar
+            (name)
+            (ch_init
               (number)
-	          (typename)
-	          (typename)
-	          (typename)
-	          (typename))))
-	    (one_decl
-	      (typename)
-	      (ivar
-	        (name)
+              (typename)
+              (typename)
+              (typename)
+              (typename))))
+        (one_decl
+          (typename)
+          (ivar
+            (name)
             (number)
-	        (ch_init
+            (ch_init
               (number)
-	          (typename)))))))
+              (typename))))))))
 
 ====
 Name
@@ -85,11 +86,12 @@ init {
 
 (source_file
   (init
-    (decl_lst
-      (one_decl
-        (typename)
-        (ivar
-          (name))))))
+    (block
+      (decl_lst
+        (one_decl
+          (typename)
+          (ivar
+            (name)))))))
 
 ===========
 Binary_expr
@@ -103,18 +105,19 @@ init {
 
 (source_file
   (init
-    (decl_lst
-      (one_decl
-        (typename)
-        (ivar
-          (name)
-          (binary_expr
+    (block
+      (decl_lst
+        (one_decl
+          (typename)
+          (ivar
+            (name)
             (binary_expr
-              (number)
-              (number))
-            (binary_expr
-              (number)
-              (number))))))))
+              (binary_expr
+                (number)
+                (number))
+              (binary_expr
+                (number)
+                (number)))))))))
 
 ==========
 Unary_expr
@@ -128,16 +131,17 @@ init {
 
 (source_file
   (init
-    (decl_lst
-      (one_decl
-        (typename)
-        (ivar
-          (name)
-          (binary_expr
-            (unary_expr
-              (number))
-            (unary_expr
-              (number))))))))
+    (block
+      (decl_lst
+        (one_decl
+          (typename)
+          (ivar
+            (name)
+            (binary_expr
+              (unary_expr
+                (number))
+              (unary_expr
+                (number)))))))))
 
 ======
 String
