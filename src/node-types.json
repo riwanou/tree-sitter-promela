@@ -33,13 +33,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -58,10 +60,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -129,13 +127,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -154,10 +154,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -221,13 +217,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -246,10 +244,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -313,13 +307,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -615,10 +611,6 @@
             "named": true
           },
           {
-            "type": "name",
-            "named": true
-          },
-          {
             "type": "priority",
             "named": true
           },
@@ -872,13 +864,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -897,10 +891,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -1078,13 +1068,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -1162,11 +1154,19 @@
             "named": true
           },
           {
+            "type": "d_step",
+            "named": false
+          },
+          {
             "type": "decl_lst",
             "named": true
           },
           {
             "type": "do",
+            "named": false
+          },
+          {
+            "type": "else",
             "named": false
           },
           {
@@ -1179,6 +1179,10 @@
           },
           {
             "type": "fi",
+            "named": false
+          },
+          {
+            "type": "goto",
             "named": false
           },
           {
@@ -1345,10 +1349,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -1564,13 +1564,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": true,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -1648,11 +1650,19 @@
             "named": true
           },
           {
+            "type": "d_step",
+            "named": false
+          },
+          {
             "type": "decl_lst",
             "named": true
           },
           {
             "type": "do",
+            "named": false
+          },
+          {
+            "type": "else",
             "named": false
           },
           {
@@ -1665,6 +1675,10 @@
           },
           {
             "type": "fi",
+            "named": false
+          },
+          {
+            "type": "goto",
             "named": false
           },
           {
@@ -1765,6 +1779,16 @@
           }
         ]
       },
+      "params": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "decl_lst",
+            "named": true
+          }
+        ]
+      },
       "printf": {
         "multiple": true,
         "required": false,
@@ -1834,10 +1858,6 @@
             "named": true
           },
           {
-            "type": "name",
-            "named": true
-          },
-          {
             "type": "priority",
             "named": true
           },
@@ -1868,7 +1888,7 @@
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "andor_expr",
@@ -1983,13 +2003,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -2008,10 +2030,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -2061,7 +2079,7 @@
     }
   },
   {
-    "type": "macros",
+    "type": "macro",
     "named": true,
     "fields": {
       "expansion": {
@@ -2079,13 +2097,117 @@
           {
             "type": "arg_lst",
             "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "macro_body": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "andor_expr",
+            "named": true
+          },
+          {
+            "type": "arg_lst",
+            "named": true
+          },
+          {
+            "type": "binary_expr",
+            "named": true
+          },
+          {
+            "type": "enabled",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "len",
+            "named": false
           },
           {
             "type": "name",
             "named": true
           },
           {
+            "type": "np_",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "pc_value",
+            "named": false
+          },
+          {
             "type": "priority",
+            "named": true
+          },
+          {
+            "type": "run",
+            "named": false
+          },
+          {
+            "type": "skip",
+            "named": false
+          },
+          {
+            "type": "timeout",
+            "named": false
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "varref",
             "named": true
           }
         ]
@@ -2107,10 +2229,6 @@
             "named": true
           },
           {
-            "type": "name",
-            "named": true
-          },
-          {
             "type": "priority",
             "named": true
           },
@@ -2122,35 +2240,15 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "andor_expr",
-          "named": true
-        },
-        {
-          "type": "binary_expr",
-          "named": true
-        },
         {
           "type": "name",
           "named": true
         },
         {
-          "type": "number",
-          "named": true
-        },
-        {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "unary_expr",
-          "named": true
-        },
-        {
-          "type": "varref",
           "named": true
         }
       ]
@@ -2300,13 +2398,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -2384,11 +2484,19 @@
             "named": true
           },
           {
+            "type": "d_step",
+            "named": false
+          },
+          {
             "type": "decl_lst",
             "named": true
           },
           {
             "type": "do",
+            "named": false
+          },
+          {
+            "type": "else",
             "named": false
           },
           {
@@ -2401,6 +2509,10 @@
           },
           {
             "type": "fi",
+            "named": false
+          },
+          {
+            "type": "goto",
             "named": false
           },
           {
@@ -2567,10 +2679,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -2813,13 +2921,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -2897,11 +3007,19 @@
             "named": true
           },
           {
+            "type": "d_step",
+            "named": false
+          },
+          {
             "type": "decl_lst",
             "named": true
           },
           {
             "type": "do",
+            "named": false
+          },
+          {
+            "type": "else",
             "named": false
           },
           {
@@ -2914,6 +3032,10 @@
           },
           {
             "type": "fi",
+            "named": false
+          },
+          {
+            "type": "goto",
             "named": false
           },
           {
@@ -3080,10 +3202,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -3314,13 +3432,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": true,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -3398,11 +3518,19 @@
             "named": true
           },
           {
+            "type": "d_step",
+            "named": false
+          },
+          {
             "type": "decl_lst",
             "named": true
           },
           {
             "type": "do",
+            "named": false
+          },
+          {
+            "type": "else",
             "named": false
           },
           {
@@ -3415,6 +3543,10 @@
           },
           {
             "type": "fi",
+            "named": false
+          },
+          {
+            "type": "goto",
             "named": false
           },
           {
@@ -3515,6 +3647,16 @@
           }
         ]
       },
+      "params": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "decl_lst",
+            "named": true
+          }
+        ]
+      },
       "printf": {
         "multiple": true,
         "required": false,
@@ -3584,10 +3726,6 @@
             "named": true
           },
           {
-            "type": "name",
-            "named": true
-          },
-          {
             "type": "priority",
             "named": true
           },
@@ -3618,7 +3756,7 @@
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "active",
@@ -3774,13 +3912,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -3799,10 +3939,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -3876,7 +4012,7 @@
           "named": true
         },
         {
-          "type": "macros",
+          "type": "macro",
           "named": true
         },
         {
@@ -4036,13 +4172,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -4120,11 +4258,19 @@
             "named": true
           },
           {
+            "type": "d_step",
+            "named": false
+          },
+          {
             "type": "decl_lst",
             "named": true
           },
           {
             "type": "do",
+            "named": false
+          },
+          {
+            "type": "else",
             "named": false
           },
           {
@@ -4137,6 +4283,10 @@
           },
           {
             "type": "fi",
+            "named": false
+          },
+          {
+            "type": "goto",
             "named": false
           },
           {
@@ -4306,10 +4456,6 @@
             "named": true
           },
           {
-            "type": "name",
-            "named": true
-          },
-          {
             "type": "priority",
             "named": true
           },
@@ -4417,13 +4563,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -4442,10 +4590,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -4548,13 +4692,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -4573,10 +4719,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -4659,13 +4801,15 @@
           {
             "type": "arg_lst",
             "named": true
-          },
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
             "type": "name",
-            "named": true
-          },
-          {
-            "type": "priority",
             "named": true
           }
         ]
@@ -4684,10 +4828,6 @@
           },
           {
             "type": "arg_lst",
-            "named": true
-          },
-          {
-            "type": "name",
             "named": true
           },
           {
@@ -4946,7 +5086,15 @@
     "named": true
   },
   {
+    "type": "d_step",
+    "named": false
+  },
+  {
     "type": "do",
+    "named": false
+  },
+  {
+    "type": "else",
     "named": false
   },
   {
@@ -4979,6 +5127,10 @@
   },
   {
     "type": "full",
+    "named": false
+  },
+  {
+    "type": "goto",
     "named": false
   },
   {

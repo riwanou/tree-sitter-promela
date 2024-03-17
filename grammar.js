@@ -11,7 +11,6 @@ module.exports = grammar({
 		[$.decl_lst],
 		[$._sequence],
 		[$.varref, $._any_expr],
-		[$.macros, $._any_expr],
 		[$.varref, $._stmnt],
 	],
 
@@ -20,7 +19,7 @@ module.exports = grammar({
 
 		_module: $ =>
 			choice(
-				$.macros,
+				$.macro,
 				$.inline_ltl,
 				$.proctype,
 				$.inline,
@@ -32,11 +31,13 @@ module.exports = grammar({
 				$.decl_lst,
 			),
 
-		macros: $ =>
+		macro: $ =>
 			choice(
-				seq("#define", $.name, optional("("), $._any_expr, optional(")")),
+				seq("#define", $.name, optional("("), $._macro_body, optional(")")),
 				seq("#include", $.string),
 			),
+
+		_macro_body: $ => field("macro_body", $._any_expr),
 
 		inline_ltl: $ => seq("ltl", $.name, "{", $._ltl, "}"),
 
@@ -89,9 +90,9 @@ module.exports = grammar({
 			seq(
 				optional($.active),
 				"proctype",
-				$.name,
+				field("function", $.name),
 				"(",
-				optional($.decl_lst),
+				field("params", optional($.decl_lst)),
 				")",
 				optional($.priority),
 				optional($.enabler),
@@ -103,9 +104,9 @@ module.exports = grammar({
 		inline: $ =>
 			seq(
 				"inline",
-				$.name,
+				field("function", $.name),
 				"(",
-				optional($.decl_lst),
+				field("params", optional($.decl_lst)),
 				")",
 				"{",
 				$._sequence,
@@ -233,9 +234,15 @@ module.exports = grammar({
 				seq("if", $.options, "fi"),
 				seq("do", $.options, "od"),
 				seq("atomic", "{", $._sequence, "}"),
+				seq("d_step", "{", $._sequence, "}"),
+				seq("{", $._sequence, "}"),
 				$.send,
 				$.receive,
 				$.assign,
+				"else",
+				"break",
+				seq("goto", $.name),
+				field("label", seq($.name, ":", $._stmnt)),
 				field(
 					"printf",
 					seq("printf", "(", $.string, optional(seq(",", $.arg_lst)), ")"),
@@ -243,8 +250,6 @@ module.exports = grammar({
 				field("printm", seq("printm", "(", $.name, ")")),
 				field("assert", seq("assert", $._expr)),
 				$._expr,
-				"break",
-				field("label", seq($.name, ":", $._stmnt)),
 			),
 
 		_any_expr: $ =>
@@ -262,16 +267,13 @@ module.exports = grammar({
 					"run",
 					seq(
 						"run",
-						$.name,
-						"(",
-						optional($.arg_lst),
-						")",
+						seq(field("function", $.name), "(", optional($.arg_lst), ")"),
 						optional($.priority),
 					),
 				),
 				field(
 					"expansion",
-					seq($.name, "(", optional($.arg_lst), ")", optional($.priority)),
+					seq(field("function", $.name), "(", optional($.arg_lst), ")"),
 				),
 			),
 
